@@ -999,17 +999,36 @@ KIẾN THỨC CHUYÊN MÔN:
     const data = localStorage.getItem('tiger_knowledge_docs');
     if (data) {
       try {
-        this.knowledgeDocs = JSON.parse(data) || [];
+        let docs = JSON.parse(data) || [];
+        // Purge any old fake sample data completely
+        this.knowledgeDocs = docs.filter(d => !d.title.includes('Riverside') && !d.id.includes('sample'));
       } catch (e) {
         this.knowledgeDocs = [];
       }
-    } else {
+    }
+
+    // Default real official projects if empty
+    if (!this.knowledgeDocs || this.knowledgeDocs.length === 0) {
       this.knowledgeDocs = [
         {
-          id: 'doc_sample_1',
-          title: 'Dự Án Đại Chúng Riverside',
-          content: 'Dự án Đại Chúng Riverside tại ven sông quy mô 5.2ha, căn hộ 1PN-3PN giá từ 110tr/m2. CSBH: Vốn tự có 15%, ngân hàng hỗ trợ 70% ân hạn nợ gốc và 0% lãi suất trong 24 tháng. Chiết khấu thanh toán sớm 9.5%.',
+          id: 'doc_blanca_city',
+          title: 'Blanca City Vũng Tàu (Sun Group)',
+          content: 'Dự án Blanca City tại Đường 3/2 Phường 10, TP. Vũng Tàu do Sun Group phát triển. Quy mô gồm Shophouse thấp tầng Casa và Tháp căn hộ cao tầng Beacon Tower. CSBH: Hỗ trợ tài chính, quà tặng đêm nghỉ hệ sinh thái Sun World, gói khám sức khỏe BVMT Gold/Diamond.',
           imageUrl: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&auto=format&fit=crop&q=80',
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 'doc_tgc_sola',
+          title: 'The Global City & Bán Đảo Sola (Masterise Homes)',
+          content: 'Đại đô thị phức hợp 117.4ha tại An Phú, TP. Thủ Đức do Masterise Homes phát triển và Foster + Partners thiết kế. Gồm Nhà phố Soho thương mại sầm uất, Bán đảo Sola, Kênh đào nhạc nước lớn nhất Đông Nam Á. CSBH: Ân hạn nợ gốc và hỗ trợ lãi suất hấp dẫn.',
+          imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&auto=format&fit=crop&q=80',
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 'doc_urban_green',
+          title: 'Urban Green Thủ Đức (Kusto Home)',
+          content: 'Dự án căn hộ Resort Living tại Hiệp Bình Phước, TP. Thủ Đức do Kusto Home phát triển. Gồm 2 tháp Bliss và Aster với hơn 60 tiện ích chuẩn wellness, mật độ xây dựng chỉ 32.3%, pháp lý hoàn chỉnh.',
+          imageUrl: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&auto=format&fit=crop&q=80',
           createdAt: new Date().toISOString()
         }
       ];
