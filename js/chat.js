@@ -519,7 +519,12 @@ class TigerChatApp {
       <div class="msg-avatar">🐯</div>
       <div class="msg-body">
         <div class="msg-bubble">${htmlContent}</div>
-        <div class="msg-time">Hổ Master Đại Chúng • ${timeStr}</div>
+        <div class="msg-footer-bar">
+          <div class="msg-time">Hổ Master Đại Chúng • ${timeStr}</div>
+          <button class="msg-speak-btn" onclick="window.tigerChat && window.tigerChat.toggleSpeakMessage(this)" title="Nghe đọc câu trả lời này">
+            <span class="speak-icon">🔊</span> <span class="speak-label">Đọc</span>
+          </button>
+        </div>
       </div>
     `;
     this.chatFeed.appendChild(msgEl);
@@ -674,7 +679,12 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC ĐỂ KHÔNG BỊ DÍNH CHỮ LUÔN TUỒN):
         <div class="msg-avatar">🐯</div>
         <div class="msg-body">
           <div class="msg-bubble" id="streamingBubble"></div>
-          <div class="msg-time">Hổ Master Đại Chúng • ${timeStr}</div>
+          <div class="msg-footer-bar">
+            <div class="msg-time">Hổ Master Đại Chúng • ${timeStr}</div>
+            <button class="msg-speak-btn" onclick="window.tigerChat && window.tigerChat.toggleSpeakMessage(this)" title="Nghe đọc câu trả lời này">
+              <span class="speak-icon">🔊</span> <span class="speak-label">Đọc</span>
+            </button>
+          </div>
         </div>
       `;
       this.chatFeed.appendChild(msgEl);
@@ -965,6 +975,78 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC ĐỂ KHÔNG BỊ DÍNH CHỮ LUÔN TUỒN):
       }
     }
     return null;
+  }
+
+  /* --------------------------------------------------------------------------
+     TEXT-TO-SPEECH (ĐỌC CÂU TRẢ LỜI TIẾNG VIỆT)
+     -------------------------------------------------------------------------- */
+  toggleSpeakMessage(btn) {
+    if (!('speechSynthesis' in window)) {
+      this.showToast('Trình duyệt chưa hỗ trợ tính năng Đọc giọng nói (Text-to-Speech) 🔊');
+      return;
+    }
+
+    if (btn.classList.contains('speaking')) {
+      window.speechSynthesis.cancel();
+      this.resetSpeakButtons();
+      this.showToast('⏹️ Đã dừng đọc!');
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    this.resetSpeakButtons();
+
+    const msgBody = btn.closest('.msg-body');
+    const bubble = msgBody ? msgBody.querySelector('.msg-bubble') : null;
+    if (!bubble) return;
+
+    let text = bubble.innerText || bubble.textContent;
+    // Clean emojis, icons, and artifacts for natural speech
+    text = text
+      .replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '')
+      .replace(/[*#_~`>•🐾🚀🔍🖼️🎮🔮🤣🥊📐🏙️🎯🏖️🌐]/g, '')
+      .replace(/Hổ Master Đại Chúng.*/g, '')
+      .replace(/Đại Chúng Media.*/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    if (!text) {
+      this.showToast('Không có nội dung văn bản để đọc!');
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'vi-VN';
+    utterance.rate = 1.05;
+    utterance.pitch = 1.0;
+
+    const voices = window.speechSynthesis.getVoices();
+    const viVoice = voices.find(v => v.lang === 'vi-VN' || v.lang.startsWith('vi') || v.lang.startsWith('VI'));
+    if (viVoice) {
+      utterance.voice = viVoice;
+    }
+
+    btn.classList.add('speaking');
+    btn.innerHTML = `<span class="speak-icon">⏹️</span> <span class="speak-label">Dừng</span>`;
+
+    utterance.onend = () => {
+      this.resetSpeakButtons();
+    };
+
+    utterance.onerror = (e) => {
+      console.warn('TTS error:', e);
+      this.resetSpeakButtons();
+    };
+
+    window.speechSynthesis.speak(utterance);
+    this.showToast('🔊 Cọp đang đọc câu trả lời cho bạn nghe...');
+  }
+
+  resetSpeakButtons() {
+    document.querySelectorAll('.msg-speak-btn').forEach(b => {
+      b.classList.remove('speaking');
+      b.innerHTML = `<span class="speak-icon">🔊</span> <span class="speak-label">Đọc</span>`;
+    });
   }
 
   /* --------------------------------------------------------------------------

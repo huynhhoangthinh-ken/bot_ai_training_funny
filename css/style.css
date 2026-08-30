@@ -497,11 +497,47 @@ body {
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
 }
 
+.msg-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 4px 0 4px;
+}
+
 .msg-time {
   font-size: 0.72rem;
   color: var(--text-muted);
-  padding: 0 4px;
   font-weight: 500;
+}
+
+.msg-speak-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition);
+}
+
+.msg-speak-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.msg-speak-btn.speaking {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #dc2626;
+  animation: pulseVoice 1s infinite alternate;
 }
 
 .chat-msg.user .msg-time {
