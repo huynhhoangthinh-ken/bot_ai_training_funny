@@ -773,10 +773,10 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC ĐỂ KHÔNG BỊ DÍNH CHỮ LUÔN TUỒN):
     }));
 
     const candidateModels = [
-      this.currentModel || 'gemini-3.6-flash',
-      'gemini-3.6-flash',
-      'gemini-flash-latest',
-      'gemini-3.7-flash',
+      this.currentModel || 'gemini-2.5-flash',
+      'gemini-2.5-flash',
+      'gemini-2.0-flash',
+      'gemini-1.5-flash',
       'gemini-2.5-pro'
     ];
 
@@ -822,21 +822,7 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC ĐỂ KHÔNG BỊ DÍNH CHỮ LUÔN TUỒN):
     if (success) {
       botReplyText = this.formatMarkdownToHtml(botReplyText);
 
-      let matchedMedia = this.findMatchingMedia(userPrompt.toLowerCase());
-      if (matchedMedia) {
-        botReplyText += `
-          <div class="chat-media-card">
-            <div class="chat-media-img-wrap" onclick="window.tigerChat.openLightbox('${matchedMedia.url}', '${matchedMedia.caption}')">
-              <img src="${matchedMedia.url}" alt="${matchedMedia.alt}" class="chat-media-img" loading="lazy">
-              <span class="img-zoom-hint">🔍 Nhấp để phóng to</span>
-            </div>
-            <div class="chat-media-caption">
-              <span>🖼️ ${matchedMedia.title}</span>
-              <small style="color: var(--text-muted);">Đại Chúng Media</small>
-            </div>
-          </div>
-        `;
-      }
+      // 100% Text-only response - No image attachments
 
       this.renderBotMessage(botReplyText);
       this.conversationHistory.push({ role: 'model', content: botReplyText });
@@ -1135,39 +1121,13 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC ĐỂ KHÔNG BỊ DÍNH CHỮ LUÔN TUỒN):
   }
 
   synthesizeMediaResponse(media, prompt) {
-    let text = `<strong>🐯 Cọp gửi bạn xem [${media.title}] đây nhé:</strong><br>${media.caption}`;
-    let imageCardHtml = `
-      <div class="chat-media-card">
-        <div class="chat-media-img-wrap" onclick="window.tigerChat.openLightbox('${media.url}', '${media.caption}')">
-          <img src="${media.url}" alt="${media.alt}" class="chat-media-img" loading="lazy">
-          <span class="img-zoom-hint">🔍 Nhấp để phóng to</span>
-        </div>
-        <div class="chat-media-caption">
-          <span>🖼️ ${media.title}</span>
-          <small style="color: var(--text-muted);">Đại Chúng Media</small>
-        </div>
-      </div>
-    `;
-    return `${text}${imageCardHtml}`;
+    return `<strong>🐯 Thông tin chi tiết [${media.title}]:</strong><br>${media.caption}`;
   }
 
   synthesizeKnowledgeResponse(doc, prompt) {
     const formattedContent = this.escapeHtml(doc.content).replace(/\n/g, '<br>');
     let fullResponse = `<strong>🐯 Dữ liệu từ [${doc.title}]:</strong><br><br>${formattedContent}`;
-    if (doc.imageUrl) {
-      fullResponse += `
-        <div class="chat-media-card">
-          <div class="chat-media-img-wrap" onclick="window.tigerChat.openLightbox('${doc.imageUrl}', '${this.escapeHtml(doc.title)}')">
-            <img src="${doc.imageUrl}" alt="${this.escapeHtml(doc.title)}" class="chat-media-img" loading="lazy">
-            <span class="img-zoom-hint">🔍 Nhấp để phóng to</span>
-          </div>
-          <div class="chat-media-caption">
-            <span>🖼️ ${this.escapeHtml(doc.title)}</span>
-            <small style="color: var(--text-muted);">Hình ảnh đính kèm</small>
-          </div>
-        </div>
-      `;
-    }
+    // 100% Text-only - No images
     return fullResponse;
   }
 
