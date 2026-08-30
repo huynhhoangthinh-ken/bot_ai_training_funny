@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ĐẠI CHÚNG PROPERTIES — CHAT ENGINE (APPLE UI + GEMINI AI + GOOGLE TTS)
+   ĐẠI CHÚNG PROPERTIES — HỔ MASTER CHAT ENGINE (APPLE UI + GEMINI AI)
    ========================================================================== */
 
 class TigerChatEngine {
@@ -10,12 +10,16 @@ class TigerChatEngine {
     this.voiceInputBtn = document.getElementById('voiceInputBtn');
     this.clearChatBtn = document.getElementById('clearChatBtn');
     this.heroWelcomeCard = document.getElementById('heroWelcomeCard');
+    this.currentMoodLabel = document.getElementById('currentMoodLabel');
 
     // Modals
     this.personalityModal = document.getElementById('personalityModal');
     this.openPersonalityBtn = document.getElementById('openPersonalityModalBtn');
     this.closePersonalityBtn = document.getElementById('closePersonalityModalBtn');
-    this.toggleExpertBtn = document.getElementById('toggleExpertModeBtn');
+
+    this.quizModal = document.getElementById('quizModal');
+    this.openQuizModalBtn = document.getElementById('openQuizModalBtn');
+    this.closeQuizModalBtn = document.getElementById('closeQuizModalBtn');
 
     this.personality = 'hai_huoc';
     this.isTyping = false;
@@ -54,13 +58,13 @@ class TigerChatEngine {
     // Clear chat
     if (this.clearChatBtn) {
       this.clearChatBtn.addEventListener('click', () => {
-        if (confirm('Xóa sạch lịch sử chat để bắt đầu phiên mới nhé Ken?')) {
+        if (confirm('Xóa sạch lịch sử chat để bắt đầu phiên mới cùng Cọp Master nhé Ken? 🐯')) {
           this.chatFeed.innerHTML = '';
           if (this.heroWelcomeCard) {
             this.chatFeed.appendChild(this.heroWelcomeCard);
           }
           this.conversationHistory = [];
-          this.showToast('✨ Đã làm mới cuộc trò chuyện!');
+          this.showToast('✨ Cọp đã làm mới cuộc trò chuyện!');
         }
       });
     }
@@ -106,17 +110,28 @@ class TigerChatEngine {
         document.querySelectorAll('.personality-item').forEach(i => i.classList.remove('active'));
         item.classList.add('active');
         this.personality = item.getAttribute('data-value') || 'hai_huoc';
+        const name = item.querySelector('strong').textContent;
+        if (this.currentMoodLabel) {
+          this.currentMoodLabel.textContent = name.replace('Hổ ', '');
+        }
         this.personalityModal.classList.remove('active');
-        this.showToast(`✨ Đã đổi tính cách sang: ${item.querySelector('strong').textContent}`);
+        this.showToast(`✨ Hổ Master đã chuyển sang: ${name}`);
       });
     });
 
-    // Toggle Expert Mode
-    if (this.toggleExpertBtn) {
-      this.toggleExpertBtn.addEventListener('click', () => {
-        this.personality = this.personality === 'master_sales' ? 'hai_huoc' : 'master_sales';
-        const label = this.personality === 'master_sales' ? 'Sát Thủ Chốt Deal (Thổ Địa)' : 'Hổ Hài Hước';
-        this.showToast(`🧭 Đã bật chế độ: ${label}`);
+    // Quiz Modal
+    if (this.openQuizModalBtn && this.quizModal) {
+      this.openQuizModalBtn.addEventListener('click', () => {
+        this.quizModal.classList.add('active');
+        if (window.tigerQuiz && window.tigerQuiz.startQuiz) {
+          window.tigerQuiz.startQuiz();
+        }
+      });
+    }
+
+    if (this.closeQuizModalBtn && this.quizModal) {
+      this.closeQuizModalBtn.addEventListener('click', () => {
+        this.quizModal.classList.remove('active');
       });
     }
   }
@@ -136,7 +151,7 @@ class TigerChatEngine {
     this.recognition.onstart = () => {
       this.isListening = true;
       if (this.voiceInputBtn) this.voiceInputBtn.classList.add('listening');
-      this.showToast('🎙️ Đang lắng nghe... Nói đi Ken!');
+      this.showToast('🎙️ Cọp đang lắng nghe... Nói đi Ken! 🐯');
     };
 
     this.recognition.onresult = (event) => {
@@ -200,18 +215,13 @@ class TigerChatEngine {
     this.scrollToBottom();
   }
 
-  renderBotMessage(htmlContent, title = 'Một lựa chọn đáng xem', sub = 'Đại Chúng Properties') {
+  renderBotMessage(htmlContent, title = 'Hổ Master Đại Chúng 🐯', sub = 'Trợ lý BĐS thông minh') {
     const msgEl = document.createElement('div');
     msgEl.className = 'chat-msg bot';
     msgEl.innerHTML = `
       <div class="msg-card-wrap">
         <div class="bot-card-top">
-          <div class="bot-avatar-mini">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2a8 8 0 0 0-8 8c0 3.5 2.2 6.5 5.5 7.6V20a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-2.4c3.3-1.1 5.5-4.1 5.5-7.6a8 8 0 0 0-8-8z"/>
-              <path d="M9 10a3 3 0 0 1 6 0"/>
-            </svg>
-          </div>
+          <div class="bot-avatar-mini">🐯</div>
           <div class="bot-title-head">
             <h4>${this.escapeHtml(title)}</h4>
             <p>${this.escapeHtml(sub)}</p>
@@ -222,9 +232,9 @@ class TigerChatEngine {
 
         <div class="bot-card-footer">
           <button class="action-link-btn" onclick="window.location.href='https://huynhhoangthinh.com'">
-            <span>Xem chi tiết dự án</span> &gt;
+            <span>Xem dự án thực tế</span> &gt;
           </button>
-          <button class="bot-speak-btn" onclick="window.tigerChat && window.tigerChat.toggleSpeakMessage(this)" title="Nghe đọc nội dung này">
+          <button class="bot-speak-btn" onclick="window.tigerChat && window.tigerChat.toggleSpeakMessage(this)" title="Nghe Cọp đọc câu trả lời này">
             <span>🔊</span> <span class="speak-label">Đọc</span>
           </button>
         </div>
@@ -240,7 +250,7 @@ class TigerChatEngine {
     typingEl.className = 'chat-msg bot';
     typingEl.id = 'chatTypingIndicator';
     typingEl.innerHTML = `
-      <div class="msg-card-wrap" style="padding: 12px 16px;">
+      <div class="msg-card-wrap" style="padding: 10px 14px;">
         <div class="typing-dots">
           <span class="typing-dot"></span>
           <span class="typing-dot"></span>
@@ -267,24 +277,40 @@ class TigerChatEngine {
     return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
   }
 
-  async generateAiReply(userPrompt) {
-    this.showTypingIndicator();
-
-    const systemInstruction = `Bạn là Trợ lý AI Bất Động Sản cao cấp của Đại Chúng Properties, hỗ trợ tư vấn trực tiếp cho khách hàng và đối tác (như Ken).
-TÍNH CÁCH: Chuyên nghiệp, am hiểu sâu sắc thị trường BĐS Việt Nam 2026, tinh tế và súc tích theo phong cách Apple Minimalist.
-DỰ ÁN ĐẠI CHÚNG PHÂN PHỐI:
-- Saigon Farm Resort (MDS Living - Đất nền biệt phủ điền trang 100% thổ cư sổ đỏ riêng)
-- The Marq Quận 1 (Hongkong Land - Căn hộ hạng sang trung tâm Q1)
-- The Global City & Bán đảo Sola (Masterise Homes & Foster + Partners)
-- The Rivus Elie Saab (Dinh thự nổi Haute Couture 121 căn)
-- Blanca City Vũng Tàu (Sun Group - Căn hộ Beacon & Casa)
-- Urban Green Thủ Đức (Kusto Home - Phong cách Singapore)
-- Gladia / Gladia Heights, Elyse Island.
+  getSystemPrompt() {
+    let prompt = `Bạn là "Hổ AI Master Sales" (Cọp Master), linh vật đại diện thương hiệu Bất Động Sản Đại Chúng Properties.
+TÍNH CÁCH ĐẶC TRƯNG:
+- Hài hước, dí dỏm, tấu hài, thực chiến, thấu hiểu tâm lý nhân viên môi giới và nhà đầu tư BĐS Việt Nam 2026.
+- Thường xưng là "Cọp" hoặc "Hổ Master", gọi người hỏi là "Ken" hoặc "bro", thỉnh thoảng dùng icon hổ 🐯 vui vẻ.
+KIẾN THỨC BẤT ĐỘNG SẢN:
+- Nắm rõ chi tiết toàn bộ các dự án Đại Chúng phân phối: Saigon Farm Resort (MDS Living - Điền trang sinh thái sổ đỏ riêng 100% thổ cư), Blanca City Vũng Tàu (Sun Group), The Global City & Bán đảo Sola (Masterise Homes & Foster + Partners), The Rivus Elie Saab (Dinh thự nổi Haute Couture), Urban Green Thủ Đức (Kusto Home), The Marq Quận 1 (Hongkong Land), Gladia...
+- Am hiểu chính sách bán hàng, ân hạn nợ gốc & lãi suất 0%, đòn bẩy tài chính, bí kíp chốt cọc và kỹ năng xử lý từ chối khách khó tính.
 
 QUY TẮC TRÌNH BÀY (BẮT BUỘC):
-- 100% KHÔNG ĐÍNH KÈM THẺ HÌNH ẢNH. Chỉ trả lời bằng văn bản thuần túy và định dạng Markdown đẹp.
-- Trình bày ngắn gọn, chia thành 2-3 đoạn súc tích, gạch đầu dòng rõ ràng.
-- Đưa ra khuyến nghị thực tế về mức giá, chính sách bán hàng và tiềm năng tăng trưởng.`;
+- 100% KHÔNG ĐÍNH KÈM THẺ HÌNH ẢNH. Chỉ trả lời bằng văn bản thuần túy và Markdown đẹp mắt.
+- Chia nội dung thành 2-3 đoạn ngắn dễ đọc, sử dụng gạch đầu dòng rõ ràng.
+- Giữ phong cách mảnh mai, thanh lịch, súc tích chuẩn phong cách Apple Minimalist.`;
+
+    if (this.personality === 'hai_huoc') {
+      prompt += `
+Phong cách hiện tại: Hổ Hài Hước — Cực kỳ dí dỏm, tấu hài, giải tỏa căng thẳng cho sales.`;
+    } else if (this.personality === 'master_sales') {
+      prompt += `
+Phong cách hiện tại: Sát Thủ Chốt Deal — Thực chiến, đòn bẩy tâm lý, sắc bén và quyết đoán.`;
+    } else if (this.personality === 'cute_dongvien') {
+      prompt += `
+Phong cách hiện tại: Cute Động Viên — Ngọt ngào, thả tim, tiếp lửa năng lượng tích cực.`;
+    } else if (this.personality === 'triet_ly') {
+      prompt += `
+Phong cách hiện tại: Triết Lý Bác Học — Thâm thúy, tĩnh tại, góc nhìn chu kỳ vĩ mô.`;
+    }
+
+    return prompt;
+  }
+
+  async generateAiReply(userPrompt) {
+    this.showTypingIndicator();
+    const systemInstruction = this.getSystemPrompt();
 
     const candidateModels = [
       this.currentModel,
@@ -305,7 +331,7 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
           body: JSON.stringify({
             contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
             systemInstruction: { parts: [{ text: systemInstruction }] },
-            generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+            generationConfig: { temperature: 0.85, maxOutputTokens: 2048 }
           })
         });
 
@@ -324,30 +350,25 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
 
     if (success) {
       const formatted = this.formatMarkdownToHtml(botReplyText);
-      this.renderBotMessage(formatted, 'Phân tích từ Trợ Lý Đại Chúng', 'Đại Chúng Properties');
+      this.renderBotMessage(formatted, 'Hổ Master Đại Chúng 🐯', 'Phân tích & Chốt deal thần tốc');
     } else {
       this.renderBotMessage(
-        `<p>Dạ em chào Ken! Về <strong>${this.escapeHtml(userPrompt)}</strong>, hiện tại các dự án trọng điểm như <strong>Saigon Farm Resort</strong> (Điền trang sổ đỏ riêng), <strong>The Global City</strong> (Thủ Đức) và <strong>The Marq</strong> (Quận 1) đang có chính sách thanh toán và ân hạn lãi gốc rất hấp dẫn. Em luôn sẵn sàng phân tích chuyên sâu cho anh bất cứ lúc nào!</p>`,
-        'Gợi ý bất động sản phù hợp',
-        'Đại Chúng Properties'
+        `<p>Dạ Cọp nghe rõ rồi nè Ken! Về <strong>${this.escapeHtml(userPrompt)}</strong>, hiện tại các dự án tâm điểm như <strong>Saigon Farm Resort</strong> (Đất nền sinh thái sổ đỏ riêng), <strong>The Global City</strong> (Thủ Đức) và <strong>The Marq</strong> (Quận 1) đang có chính sách cực kỳ ngon. Cọp luôn sẵn sàng phân tích và chốt cọc cùng bro bất cứ lúc nào! 🐯🔥</p>`,
+        'Hổ Master Đại Chúng 🐯',
+        'Chiến binh chốt deal'
       );
     }
   }
 
   formatMarkdownToHtml(text) {
     if (!text) return '';
-    let formatted = text.replace(/
-/g, '
-');
+    let formatted = text.replace(/\r\n/g, '\n');
     formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>');
     formatted = formatted.replace(/^\s*[-•]\s+(.*)$/gm, '<li>$1</li>');
     formatted = formatted.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-    formatted = formatted.replace(/
-
-+/g, '</p><p>');
-    formatted = formatted.replace(/
-/g, '<br>');
+    formatted = formatted.replace(/\n\n+/g, '</p><p>');
+    formatted = formatted.replace(/\n/g, '<br>');
     return `<p>${formatted}</p>`;
   }
 
@@ -379,7 +400,7 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
     if (!body) return;
 
     let text = body.innerText || body.textContent;
-    text = text.replace(/[*#_~`>•]/g, '').replace(/\s+/g, ' ').trim();
+    text = text.replace(/[*#_~`>•🐾🚀🔍🖼️🎮🔮🤣🥊📐🏙️🎯🏖️🌐]/g, '').replace(/\s+/g, ' ').trim();
 
     if (!text) {
       this.showToast('Không có nội dung văn bản để đọc!');
@@ -388,7 +409,7 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
 
     btn.classList.add('speaking');
     btn.innerHTML = `<span>⏹️</span> <span class="speak-label">Dừng</span>`;
-    this.showToast('🔊 Đang đọc giọng Google AI...');
+    this.showToast('🔊 Cọp đang đọc bằng giọng Google AI...');
 
     try {
       const cleanSnippet = encodeURIComponent(text.substring(0, 200));
