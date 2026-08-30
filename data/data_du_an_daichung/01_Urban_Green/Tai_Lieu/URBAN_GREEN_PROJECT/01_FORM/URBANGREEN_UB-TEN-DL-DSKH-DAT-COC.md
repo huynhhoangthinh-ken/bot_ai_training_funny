@@ -1,0 +1,34 @@
+---
+source: "/Users/kenhuynh/Desktop/2. Thong tin du an/01_Urban_Green/Tai_Lieu/URBAN_GREEN_PROJECT/01_FORM/URBANGREEN_UB-TEN-DL-DSKH-DAT-COC.xlsx"
+file: "URBANGREEN_UB-TEN-DL-DSKH-DAT-COC.xlsx"
+size_kb: 19
+modified: 2022-04-11
+converted: 2026-08-30
+---
+
+# URBANGREEN_UB-TEN-DL-DSKH-DAT-COC
+
+## Sheet: Sheet1
+
+| Unnamed: 0   | Unnamed: 1                                                                                                                                           | DANH SÁCH KHÁCH HÀNG GIAO DỊCH CỌC   | Unnamed: 3   | Unnamed: 4   | Unnamed: 5   | Unnamed: 6          | Unnamed: 7   | Unnamed: 8   | Unnamed: 9                  | Unnamed: 10   | Unnamed: 11                                     | Unnamed: 12                                     | Unnamed: 13   | Unnamed: 14          | Unnamed: 15   | Unnamed: 16   | Unnamed: 17          |
+|              |                                                                                                                                                      | DỰ ÁN URBAN GREEN                    |              |              |              |                     |              |              |                             |               |                                                 |                                                 |               |                      |               |               |                      |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-------------|:-------------|:-------------|:--------------------|:-------------|:-------------|:----------------------------|:--------------|:------------------------------------------------|:------------------------------------------------|:--------------|:---------------------|:--------------|:--------------|:---------------------|
+|              | Ghi chú:                                                                                                                                             |                                      |              |              |              |                     |              |              |                             |               |                                                 |                                                 |               |                      |               |               |                      |
+|              | - Đại lý vui lòng nhập thông tin ngày tháng năm và số bắt buộc phải để dấu nháy trước nội dung nhập;                                                 |                                      |              |              |              |                     |              |              |                             |               |                                                 |                                                 |               |                      |               |               |                      |
+|              | - Nhập đúng và đủ các nội dung theo ví dụ minh họa bên dưới, các trường hợp thiếu thông tin sẽ được xem là không hợp lệ và CĐT sẽ không xuất HĐ cọc; |                                      |              |              |              |                     |              |              |                             |               |                                                 |                                                 |               |                      |               |               |                      |
+|              | - Đối với các trường hợp đổi thông tin khách hàng, Đại lý bôi đỏ tại nội dung nhập và ghi chú nội dung điều chỉnh;                                   |                                      |              |              |              |                     |              |              |                             |               |                                                 |                                                 |               |                      |               |               |                      |
+| STT          | Ngày booking                                                                                                                                         | Số TT ưu tiên                        | Mã căn GD    | Họ và tên KH | Đại lý       | Ngày tháng năm sinh | CMND         | Ngày cấp     | Nơi cấp                     | Quốc tịch     | Địa chỉ thường trú                              | Địa chỉ liên lạc                                | Số điện thoại | Email                | PTTT          | Chiết khấu    | Ghi chú              |
+|              |                                                                                                                                                      | (nếu có)                             |              |              | (Chọn)       |                     |              |              |                             |               |                                                 |                                                 |               |                      | (Chọn)        |               |                      |
+| VD           | 31/12/2022                                                                                                                                           | KHL-245                              | B-12.09      | NGUYỄN VĂN A | KHL          | 07/07/1992          | 239809099090 | 21/09/2021   | Cục trưởng CCS QLHC về TTXH | Việt Nam      | 123 Trường Chinh, Phường 14, Q.Tân Bình, TP.HCM | 123 Trường Chinh, Phường 14, Q.Tân Bình, TP.HCM | 0909099009    | nguyenvana@gmail.com | PTTTC         | 0.01          | Đổi địa chỉ liên lạc |
+
+## Sheet: Sheet2
+
+| Unnamed: 0   | Unnamed: 1   | Unnamed: 2   | Unnamed: 3   | Unnamed: 4   |
+|:-------------|:-------------|:-------------|:-------------|:-------------|
+|              |              |              |              |              |
+|              |              |              |              |              |
+|              |              | PTTTC        |              | KHL          |
+|              |              | PTTTV        |              | TOL          |
+|              |              | PTTTN 50%    |              | SGL          |
+|              |              | PTTTN 70%    |              | REVER        |
+|              |              | PTTTN 95%    |              | CBRE         |
