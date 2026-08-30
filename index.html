@@ -51,12 +51,6 @@
           </select>
         </div>
 
-        <!-- Knowledge Base Button -->
-        <button class="btn-ctrl-gold" id="openKnowledgeModalBtn" title="Nạp thêm tài liệu, bảng giá, hình ảnh cho Hổ học">
-          <span>📚 Nạp Dự Án & Ảnh</span>
-          <span class="badge-count" id="knowledgeCountBadge">0</span>
-        </button>
-
         <!-- Fun Sales EQ Quiz Button -->
         <button class="btn-ctrl-gold" id="openQuizModalBtn" style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); box-shadow: 0 4px 12px rgba(236, 72, 153, 0.35);" title="Trắc nghiệm đo EQ & Bói tính cách Sales BĐS">
           <span>🎮 Test EQ Sales</span>
@@ -288,64 +282,7 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       MODAL: NẠP DỮ LIỆU & HÌNH ẢNH DỰ ÁN (KNOWLEDGE & MEDIA BASE)
-       ========================================================================= -->
-  <div class="modal-backdrop" id="knowledgeModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-title">
-          <span style="font-size: 1.5rem;">📚</span>
-          <div>
-            <h3>NẠP DỮ LIỆU & HÌNH ẢNH DỰ ÁN</h3>
-            <p>Dán nội dung văn bản và link hình ảnh để Hổ AI học và trả lời chuẩn xác!</p>
-          </div>
-        </div>
-        <button class="modal-close-btn" id="closeKnowledgeModalBtn">✕</button>
-      </div>
 
-      <div class="modal-body">
-        <div class="form-group">
-          <label class="form-label">Tên dự án hoặc Chủ đề đào tạo:</label>
-          <input type="text" id="docTitleInput" class="form-input" placeholder="Ví dụ: Dự Án Blanca City Vũng Tàu, The Global City, Sola, Urban Green...">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Nội dung chi tiết (Giá, Chính sách, Pháp lý, USP, Ghi chú...):</label>
-          <textarea id="docContentInput" class="form-textarea" rows="5" placeholder="Dán thông tin dự án, bảng giá, tiến độ, kịch bản hoặc tài liệu bạn muốn Hổ học vào đây..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">🖼️ Link Hình Ảnh (URL ảnh phối cảnh / mặt bằng / bảng giá) hoặc Tải ảnh lên:</label>
-          <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-            <input type="text" id="docImageUrlInput" class="form-input" placeholder="Dán link ảnh (https://... hoặc data/ten_anh.jpg)">
-            <label class="btn-ctrl-gold" style="cursor: pointer; margin: 0; white-space: nowrap;">
-              📁 Tải Ảnh Lên
-              <input type="file" id="docImageFileInput" accept="image/*" style="display: none;">
-            </label>
-          </div>
-          <!-- Image preview container -->
-          <div id="imageUploadPreview" class="image-upload-preview" style="display: none;">
-            <img id="imagePreviewImg" src="" alt="Preview">
-            <span id="removeImagePreviewBtn" class="remove-img-btn" title="Hủy ảnh">✕</span>
-          </div>
-        </div>
-
-        <div class="modal-actions">
-          <button class="btn-modal-cancel" id="cancelKnowledgeBtn">Đóng</button>
-          <button class="btn-modal-save" id="saveKnowledgeBtn">💾 Nạp Vào Não Của Hổ</button>
-        </div>
-
-        <!-- Saved Knowledge Items List -->
-        <div class="saved-knowledge-section">
-          <h4>📖 Các Dữ Liệu Đã Nạp (<span id="savedDocsCount">0</span>):</h4>
-          <div class="saved-docs-list" id="savedDocsList">
-            <div class="empty-docs-hint">Chưa có tài liệu nào. Hãy nạp tài liệu đầu tiên ở trên nhé!</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- =========================================================================
        MODAL: TRẮC NGHIỆM ĐO EQ & BÓI TÍNH CÁCH SALES BĐS
