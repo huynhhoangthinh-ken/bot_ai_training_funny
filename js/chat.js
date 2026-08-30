@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ĐẠI CHÚNG PROPERTIES — HỔ MASTER CHAT ENGINE (APPLE UI + GEMINI AI)
+   ĐẠI CHÚNG PROPERTIES — HỔ MASTER CHAT ENGINE (EXACT WIREFRAME EDITION)
    ========================================================================== */
 
 class TigerChatEngine {
@@ -9,17 +9,17 @@ class TigerChatEngine {
     this.sendMsgBtn = document.getElementById('sendMsgBtn');
     this.voiceInputBtn = document.getElementById('voiceInputBtn');
     this.clearChatBtn = document.getElementById('clearChatBtn');
-    this.heroWelcomeCard = document.getElementById('heroWelcomeCard');
     this.currentMoodLabel = document.getElementById('currentMoodLabel');
+    this.currentModeLabel = document.getElementById('currentModeLabel');
 
     // Modals
     this.personalityModal = document.getElementById('personalityModal');
     this.openPersonalityBtn = document.getElementById('openPersonalityModalBtn');
     this.closePersonalityBtn = document.getElementById('closePersonalityModalBtn');
 
-    this.quizModal = document.getElementById('quizModal');
-    this.openQuizModalBtn = document.getElementById('openQuizModalBtn');
-    this.closeQuizModalBtn = document.getElementById('closeQuizModalBtn');
+    this.modeModal = document.getElementById('modeModal');
+    this.openModeBtn = document.getElementById('openModeModalBtn');
+    this.closeModeBtn = document.getElementById('closeModeModalBtn');
 
     this.personality = 'hai_huoc';
     this.isTyping = false;
@@ -58,33 +58,35 @@ class TigerChatEngine {
     // Clear chat
     if (this.clearChatBtn) {
       this.clearChatBtn.addEventListener('click', () => {
-        if (confirm('Xóa sạch lịch sử chat để bắt đầu phiên mới cùng Cọp Master nhé Ken? 🐯')) {
-          this.chatFeed.innerHTML = '';
-          if (this.heroWelcomeCard) {
-            this.chatFeed.appendChild(this.heroWelcomeCard);
-          }
+        if (confirm('Xóa sạch lịch sử chat để bắt đầu phiên mới nhé Ken? 🐯')) {
+          this.chatFeed.innerHTML = `
+            <div class="chat-msg bot">
+              <div class="msg-avatar">🐯</div>
+              <div class="msg-body">
+                <div class="msg-bubble">
+                  Chào Ken! Cọp Master Đại Chúng đây 🐯 Hôm nay mình cùng luyện chiêu chốt deal, bói quẻ hay săn dự án bất động sản nào nhé!
+                </div>
+                <div class="msg-footer-bar">
+                  <span class="msg-time">Hổ Master</span>
+                  <button class="msg-speak-btn" onclick="window.tigerChat && window.tigerChat.toggleSpeakMessage(this)">
+                    <span>🔊</span> <span class="speak-label">Đọc</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
           this.conversationHistory = [];
           this.showToast('✨ Cọp đã làm mới cuộc trò chuyện!');
         }
       });
     }
 
-    // Quick Action Hero Grid Buttons
-    document.querySelectorAll('.hero-quick-btn').forEach(btn => {
+    // Bottom 3 Action Strip Tabs
+    document.querySelectorAll('.strip-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        document.querySelectorAll('.strip-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
         const prompt = btn.getAttribute('data-prompt');
-        if (prompt) {
-          this.sendUserPrompt(prompt);
-        }
-      });
-    });
-
-    // Bottom Dock Tabs
-    document.querySelectorAll('.dock-tab-btn').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.dock-tab-btn').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const prompt = tab.getAttribute('data-prompt');
         if (prompt) {
           this.sendUserPrompt(prompt);
         }
@@ -104,10 +106,9 @@ class TigerChatEngine {
       });
     }
 
-    // Personality items selection
-    document.querySelectorAll('.personality-item').forEach(item => {
+    document.querySelectorAll('#personalityModal .personality-item').forEach(item => {
       item.addEventListener('click', () => {
-        document.querySelectorAll('.personality-item').forEach(i => i.classList.remove('active'));
+        document.querySelectorAll('#personalityModal .personality-item').forEach(i => i.classList.remove('active'));
         item.classList.add('active');
         this.personality = item.getAttribute('data-value') || 'hai_huoc';
         const name = item.querySelector('strong').textContent;
@@ -119,21 +120,32 @@ class TigerChatEngine {
       });
     });
 
-    // Quiz Modal
-    if (this.openQuizModalBtn && this.quizModal) {
-      this.openQuizModalBtn.addEventListener('click', () => {
-        this.quizModal.classList.add('active');
-        if (window.tigerQuiz && window.tigerQuiz.startQuiz) {
-          window.tigerQuiz.startQuiz();
-        }
+    // Mode Modal
+    if (this.openModeBtn && this.modeModal) {
+      this.openModeBtn.addEventListener('click', () => {
+        this.modeModal.classList.add('active');
       });
     }
 
-    if (this.closeQuizModalBtn && this.quizModal) {
-      this.closeQuizModalBtn.addEventListener('click', () => {
-        this.quizModal.classList.remove('active');
+    if (this.closeModeBtn && this.modeModal) {
+      this.closeModeBtn.addEventListener('click', () => {
+        this.modeModal.classList.remove('active');
       });
     }
+
+    document.querySelectorAll('#modeModal .personality-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('#modeModal .personality-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        this.currentModel = item.getAttribute('data-mode') || 'gemini-2.5-flash';
+        const name = item.querySelector('strong').textContent;
+        if (this.currentModeLabel) {
+          this.currentModeLabel.textContent = name;
+        }
+        this.modeModal.classList.remove('active');
+        this.showToast(`⚡ Đã chọn: ${name}`);
+      });
+    });
   }
 
   setupSpeechRecognition() {
@@ -203,11 +215,10 @@ class TigerChatEngine {
     const msgEl = document.createElement('div');
     msgEl.className = 'chat-msg user';
     msgEl.innerHTML = `
-      <div class="msg-content-wrap">
-        <div class="msg-text">${this.escapeHtml(text)}</div>
-        <div class="msg-meta-row">
-          <span>${timeStr}</span>
-          <span>✓</span>
+      <div class="msg-body">
+        <div class="msg-bubble">${this.escapeHtml(text)}</div>
+        <div class="msg-footer-bar">
+          <span>Tôi • ${timeStr}</span>
         </div>
       </div>
     `;
@@ -215,26 +226,17 @@ class TigerChatEngine {
     this.scrollToBottom();
   }
 
-  renderBotMessage(htmlContent, title = 'Hổ Master Đại Chúng 🐯', sub = 'Trợ lý BĐS thông minh') {
+  renderBotMessage(htmlContent) {
+    const timeStr = this.getCurrentTime();
     const msgEl = document.createElement('div');
     msgEl.className = 'chat-msg bot';
     msgEl.innerHTML = `
-      <div class="msg-card-wrap">
-        <div class="bot-card-top">
-          <div class="bot-avatar-mini">🐯</div>
-          <div class="bot-title-head">
-            <h4>${this.escapeHtml(title)}</h4>
-            <p>${this.escapeHtml(sub)}</p>
-          </div>
-        </div>
-
-        <div class="bot-body-text">${htmlContent}</div>
-
-        <div class="bot-card-footer">
-          <button class="action-link-btn" onclick="window.location.href='https://huynhhoangthinh.com'">
-            <span>Xem dự án thực tế</span> &gt;
-          </button>
-          <button class="bot-speak-btn" onclick="window.tigerChat && window.tigerChat.toggleSpeakMessage(this)" title="Nghe Cọp đọc câu trả lời này">
+      <div class="msg-avatar">🐯</div>
+      <div class="msg-body">
+        <div class="msg-bubble">${htmlContent}</div>
+        <div class="msg-footer-bar">
+          <span class="msg-time">Hổ Master • ${timeStr}</span>
+          <button class="msg-speak-btn" onclick="window.tigerChat && window.tigerChat.toggleSpeakMessage(this)" title="Nghe Cọp đọc câu trả lời này">
             <span>🔊</span> <span class="speak-label">Đọc</span>
           </button>
         </div>
@@ -250,11 +252,14 @@ class TigerChatEngine {
     typingEl.className = 'chat-msg bot';
     typingEl.id = 'chatTypingIndicator';
     typingEl.innerHTML = `
-      <div class="msg-card-wrap" style="padding: 10px 14px;">
-        <div class="typing-dots">
-          <span class="typing-dot"></span>
-          <span class="typing-dot"></span>
-          <span class="typing-dot"></span>
+      <div class="msg-avatar">🐯</div>
+      <div class="msg-body">
+        <div class="msg-bubble" style="padding: 6px 12px;">
+          <div class="typing-dots">
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+          </div>
         </div>
       </div>
     `;
@@ -292,17 +297,13 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
 - Giữ phong cách mảnh mai, thanh lịch, súc tích chuẩn phong cách Apple Minimalist.`;
 
     if (this.personality === 'hai_huoc') {
-      prompt += `
-Phong cách hiện tại: Hổ Hài Hước — Cực kỳ dí dỏm, tấu hài, giải tỏa căng thẳng cho sales.`;
+      prompt += `\nPhong cách hiện tại: Hổ Hài Hước — Cực kỳ dí dỏm, tấu hài, giải tỏa căng thẳng cho sales.`;
     } else if (this.personality === 'master_sales') {
-      prompt += `
-Phong cách hiện tại: Sát Thủ Chốt Deal — Thực chiến, đòn bẩy tâm lý, sắc bén và quyết đoán.`;
+      prompt += `\nPhong cách hiện tại: Sát Thủ Chốt Deal — Thực chiến, đòn bẩy tâm lý, sắc bén và quyết đoán.`;
     } else if (this.personality === 'cute_dongvien') {
-      prompt += `
-Phong cách hiện tại: Cute Động Viên — Ngọt ngào, thả tim, tiếp lửa năng lượng tích cực.`;
+      prompt += `\nPhong cách hiện tại: Cute Động Viên — Ngọt ngào, thả tim, tiếp lửa năng lượng tích cực.`;
     } else if (this.personality === 'triet_ly') {
-      prompt += `
-Phong cách hiện tại: Triết Lý Bác Học — Thâm thúy, tĩnh tại, góc nhìn chu kỳ vĩ mô.`;
+      prompt += `\nPhong cách hiện tại: Triết Lý Bác Học — Thâm thúy, tĩnh tại, góc nhìn chu kỳ vĩ mô.`;
     }
 
     return prompt;
@@ -350,12 +351,10 @@ Phong cách hiện tại: Triết Lý Bác Học — Thâm thúy, tĩnh tại, g
 
     if (success) {
       const formatted = this.formatMarkdownToHtml(botReplyText);
-      this.renderBotMessage(formatted, 'Hổ Master Đại Chúng 🐯', 'Phân tích & Chốt deal thần tốc');
+      this.renderBotMessage(formatted);
     } else {
       this.renderBotMessage(
-        `<p>Dạ Cọp nghe rõ rồi nè Ken! Về <strong>${this.escapeHtml(userPrompt)}</strong>, hiện tại các dự án tâm điểm như <strong>Saigon Farm Resort</strong> (Đất nền sinh thái sổ đỏ riêng), <strong>The Global City</strong> (Thủ Đức) và <strong>The Marq</strong> (Quận 1) đang có chính sách cực kỳ ngon. Cọp luôn sẵn sàng phân tích và chốt cọc cùng bro bất cứ lúc nào! 🐯🔥</p>`,
-        'Hổ Master Đại Chúng 🐯',
-        'Chiến binh chốt deal'
+        `<p>Dạ Cọp nghe rõ rồi nè Ken! Về <strong>${this.escapeHtml(userPrompt)}</strong>, hiện tại các dự án tâm điểm như <strong>Saigon Farm Resort</strong> (Đất nền sinh thái sổ đỏ riêng), <strong>The Global City</strong> (Thủ Đức) và <strong>The Marq</strong> (Quận 1) đang có chính sách cực kỳ ngon. Cọp luôn sẵn sàng phân tích và chốt cọc cùng bro bất cứ lúc nào! 🐯🔥</p>`
       );
     }
   }
@@ -395,11 +394,10 @@ Phong cách hiện tại: Triết Lý Bác Học — Thâm thúy, tĩnh tại, g
     }
     this.resetSpeakButtons();
 
-    const card = btn.closest('.msg-card-wrap');
-    const body = card ? card.querySelector('.bot-body-text') : null;
-    if (!body) return;
+    const bubble = btn.closest('.msg-body')?.querySelector('.msg-bubble');
+    if (!bubble) return;
 
-    let text = body.innerText || body.textContent;
+    let text = bubble.innerText || bubble.textContent;
     text = text.replace(/[*#_~`>•🐾🚀🔍🖼️🎮🔮🤣🥊📐🏙️🎯🏖️🌐]/g, '').replace(/\s+/g, ' ').trim();
 
     if (!text) {
@@ -482,7 +480,7 @@ Phong cách hiện tại: Triết Lý Bác Học — Thâm thúy, tĩnh tại, g
   }
 
   resetSpeakButtons() {
-    document.querySelectorAll('.bot-speak-btn').forEach(b => {
+    document.querySelectorAll('.msg-speak-btn').forEach(b => {
       b.classList.remove('speaking');
       b.innerHTML = `<span>🔊</span> <span class="speak-label">Đọc</span>`;
     });

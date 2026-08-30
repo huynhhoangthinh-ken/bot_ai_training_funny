@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Đại Chúng Properties | Hổ AI Master Sales</title>
-  <meta name="description" content="Trợ lý Hổ AI Đào Tạo & Chốt Deal Bất Động Sản Đại Chúng Properties — Giao diện Apple Minimalist mảnh mai sang trọng">
+  <title>Đại Chúng Properties | Hổ Master AI</title>
+  <meta name="description" content="Trợ lý Hổ AI Đào Tạo & Chốt Deal Bất Động Sản Đại Chúng Properties">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,117 +15,87 @@
 
   <div class="app-root-container">
     <!-- =========================================================================
-         1. TOP NAVIGATION BAR (APPLE MINIMALIST BAR)
+         TOP HEADER: [Logo] Đại Chúng Properties [Chế độ] [Tính cách]
          ========================================================================= -->
     <header class="app-header">
       <div class="header-inner">
-        <!-- Brand Monogram & Title -->
+        <!-- Logo & Title -->
         <div class="brand-group" id="brandLogoWrap">
-          <div class="brand-monogram">
-            <span>🐯</span>
+          <div class="brand-logo-box">
+            <span class="logo-text-emblem">🐯</span>
           </div>
           <div class="brand-text">
-            <h1 id="brandNameHeader">Đại Chúng</h1>
-            <span class="brand-sub">Hổ Master AI</span>
+            <h1 id="brandNameHeader">Đại Chúng Properties</h1>
           </div>
         </div>
 
-        <!-- Pill Action Buttons -->
+        <!-- Controls: [Chế độ] [Tính cách] [Xóa] -->
         <div class="header-controls">
-          <button class="pill-btn" id="openQuizModalBtn" title="Trắc nghiệm đo EQ Sales & Bói tính cách">
-            <span class="pill-icon">🎮</span>
-            <span class="pill-label">Test EQ</span>
+          <button class="pill-btn" id="openModeModalBtn" title="Chọn Chế độ AI">
+            <span class="pill-icon">⚡</span>
+            <span class="pill-label" id="currentModeLabel">Chế độ</span>
           </button>
 
-          <button class="pill-btn highlight-pill" id="openPersonalityModalBtn" title="Chọn tính cách của Hổ Master">
+          <button class="pill-btn highlight-pill" id="openPersonalityModalBtn" title="Chọn Tính cách của Hổ Master">
             <span class="pill-icon">✨</span>
-            <span class="pill-label" id="currentMoodLabel">Hài Hước</span>
+            <span class="pill-label" id="currentMoodLabel">Tính cách</span>
           </button>
 
-          <button class="icon-circle-btn" id="clearChatBtn" title="Xóa lịch sử trò chuyện">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+          <button class="icon-circle-btn" id="clearChatBtn" title="Xóa lịch sử chat">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
           </button>
         </div>
       </div>
     </header>
 
     <!-- =========================================================================
-         2. MAIN CHAT & HERO FEED (APPLE CARD DESIGN)
+         MAIN CHAT VIEWPORT (CHIẾM TRỌN 80% - 85% MÀN HÌNH)
          ========================================================================= -->
     <main class="chat-main-layout">
-      <div class="chat-container">
-        
-        <!-- Category Subtitle -->
-        <div class="chat-category-tag">TRỢ LÝ HỔ MASTER • ĐẠI CHÚNG PROPERTIES</div>
-
+      <div class="chat-viewport-card">
         <div class="chat-messages-container" id="chatFeed">
-          
-          <!-- Hero Assistant Welcome Card (Apple Style + Hổ Master) -->
-          <div class="hero-assistant-card" id="heroWelcomeCard">
-            <div class="hero-card-header">
-              <div class="assistant-avatar-outline">
-                <span class="avatar-tiger-icon">🐯</span>
+          <!-- Initial welcome bot message -->
+          <div class="chat-msg bot">
+            <div class="msg-avatar">🐯</div>
+            <div class="msg-body">
+              <div class="msg-bubble">
+                Chào Ken! Cọp Master Đại Chúng đây 🐯 Hôm nay mình cùng luyện chiêu chốt deal, bói quẻ hay săn dự án bất động sản nào nhé!
               </div>
-              <div class="hero-greeting-text">
-                <h2>Chào Ken! Cọp Master đây 🐯</h2>
-                <p>Hôm nay mình cùng luyện chiêu chốt deal, bói quẻ hay săn bất động sản đỉnh cao nhé!</p>
+              <div class="msg-footer-bar">
+                <span class="msg-time">Hổ Master</span>
+                <button class="msg-speak-btn" onclick="window.tigerChat && window.tigerChat.toggleSpeakMessage(this)">
+                  <span>🔊</span> <span class="speak-label">Đọc</span>
+                </button>
               </div>
-            </div>
-
-            <!-- Quick Action 3-Card Grid -->
-            <div class="hero-quick-grid">
-              <button class="hero-quick-btn" data-prompt="Bói cho tôi 1 quẻ may mắn chốt cọc tháng này!">
-                <span class="quick-icon">🔮</span>
-                <span class="quick-title">Bói quẻ chốt cọc</span>
-              </button>
-              <button class="hero-quick-btn" data-prompt="Truyền cho tôi 1 liều năng lượng chốt deal thần tốc và bí quyết đối đáp khách VIP!">
-                <span class="quick-icon">⚡</span>
-                <span class="quick-title">Năng lượng chốt deal</span>
-              </button>
-              <button class="hero-quick-btn" data-prompt="Hôm nay có dự án nào hot nhất của Đại Chúng (Saigon Farm Resort, Blanca City, Sola The Global City, The Rivus...) nên tư vấn?">
-                <span class="quick-icon">🏠</span>
-                <span class="quick-title">Dự án hot Đại Chúng</span>
-              </button>
             </div>
           </div>
-
-          <!-- Dynamic Chat Messages injected by chat.js -->
         </div>
       </div>
     </main>
 
     <!-- =========================================================================
-         3. BOTTOM ACTION DOCK (APPLE FLOATING DOCK)
+         BOTTOM 3 ACTION TABS: [Bói quẻ chốt cọc] [Năng lượng chốt deal] [Hôm nay mua gì?]
          ========================================================================= -->
-    <div class="bottom-floating-dock">
-      <button class="dock-tab-btn" data-prompt="Bói cho tôi 1 quẻ tử vi chốt deal bất động sản tuần này!">
-        <div class="dock-icon-box">
-          <span style="font-size: 1.15rem;">🔮</span>
-        </div>
-        <span class="dock-label">Bói quẻ chốt cọc</span>
+    <div class="bottom-action-strip">
+      <button class="strip-tab-btn" data-prompt="Bói cho tôi 1 quẻ may mắn chốt cọc bất động sản tháng này!">
+        <span class="tab-title">Bói quẻ chốt cọc</span>
       </button>
 
-      <button class="dock-tab-btn active" data-prompt="Truyền cho tôi 1 liều năng lượng chốt deal thần tốc và các kỹ năng xử lý từ chối của khách hàng giàu!">
-        <div class="dock-icon-box active-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <span class="dock-label">Năng lượng chốt deal</span>
+      <button class="strip-tab-btn active" data-prompt="Truyền cho tôi 1 liều năng lượng chốt deal thần tốc và bí quyết đối đáp khách VIP!">
+        <span class="tab-title">Năng lượng chốt deal</span>
       </button>
 
-      <button class="dock-tab-btn" data-prompt="Hôm nay mua gì? Phân tích căn hộ và biệt thự có chính sách bán hàng tốt nhất tuần này">
-        <div class="dock-icon-box">
-          <span style="font-size: 1.15rem;">🛒</span>
-        </div>
-        <span class="dock-label">Hôm nay mua gì?</span>
+      <button class="strip-tab-btn" data-prompt="Hôm nay mua gì? Có dự án nào hot nhất của Đại Chúng (Saigon Farm Resort, Blanca City, Sola The Global City, The Rivus...) nên tư vấn cho khách?">
+        <span class="tab-title">Hôm nay mua gì?</span>
       </button>
     </div>
 
     <!-- =========================================================================
-         4. APPLE CHAT INPUT BAR
+         SLIM CHAT INPUT BAR
          ========================================================================= -->
     <footer class="app-chat-footer">
       <div class="chat-input-wrapper">
-        <textarea id="chatInputArea" class="chat-textarea" placeholder="Nhắn tin với Cọp Master hoặc bấm micro để nói..." rows="1"></textarea>
+        <textarea id="chatInputArea" class="chat-textarea" placeholder="Nhắn tin với Cọp Master hoặc bấm micro..." rows="1"></textarea>
         <button id="voiceInputBtn" class="chat-voice-btn" title="Nói bằng giọng nói Tiếng Việt">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
         </button>
@@ -137,13 +107,49 @@
   </div>
 
   <!-- =========================================================================
-       MODAL: TÍNH CÁCH HỔ (APPLE SHEET STYLE)
+         MODAL: CHẾ ĐỘ AI
+       ========================================================================= -->
+  <div class="modal-backdrop" id="modeModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span style="font-size: 1.3rem;">⚡</span>
+          <div>
+            <h3>CHỌN CHẾ ĐỘ AI</h3>
+            <p>Tùy chỉnh tốc độ và độ sâu phân tích</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="closeModeModalBtn">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="personality-options-grid">
+          <div class="personality-item active" data-mode="gemini-2.5-flash">
+            <span class="p-icon">⚡</span>
+            <div>
+              <strong>Phản hồi siêu tốc</strong>
+              <p>Gemini 2.5 Flash — Tốc độ phản hồi tức thì, chính xác</p>
+            </div>
+          </div>
+          <div class="personality-item" data-mode="gemini-2.5-pro">
+            <span class="p-icon">🧠</span>
+            <div>
+              <strong>Suy luận chuyên sâu</strong>
+              <p>Gemini 2.5 Pro — Phân tích thị trường BĐS và tài chính vĩ mô</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+         MODAL: TÍNH CÁCH HỔ
        ========================================================================= -->
   <div class="modal-backdrop" id="personalityModal">
     <div class="modal-card">
       <div class="modal-header">
         <div class="modal-title">
-          <span style="font-size: 1.4rem;">✨</span>
+          <span style="font-size: 1.3rem;">✨</span>
           <div>
             <h3>CHỌN TÍNH CÁCH HỔ MASTER</h3>
             <p>Chọn phong cách trả lời của Cọp</p>
@@ -151,7 +157,6 @@
         </div>
         <button class="modal-close-btn" id="closePersonalityModalBtn">✕</button>
       </div>
-
       <div class="modal-body">
         <div class="personality-options-grid">
           <div class="personality-item active" data-value="hai_huoc">
@@ -187,35 +192,12 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       MODAL: TEST EQ SALES BĐS (APPLE SHEET STYLE)
-       ========================================================================= -->
-  <div class="modal-backdrop" id="quizModal">
-    <div class="modal-card" style="max-height: 85vh; overflow-y: auto;">
-      <div class="modal-header">
-        <div class="modal-title">
-          <span style="font-size: 1.4rem;">🎮</span>
-          <div>
-            <h3>TRẮC NGHIỆM EQ & BÓI TÍNH CÁCH SALES</h3>
-            <p>Khám phá bạn là hệ chiến binh nào trong làng chốt deal Đại Chúng!</p>
-          </div>
-        </div>
-        <button class="modal-close-btn" id="closeQuizModalBtn">✕</button>
-      </div>
-
-      <div class="modal-body" id="quizModalBody">
-        <!-- Content dynamically rendered by js/quiz.js -->
-      </div>
-    </div>
-  </div>
-
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Javascript Modules -->
   <script src="js/data.js"></script>
   <script src="js/project_database.js"></script>
-  <script src="js/quiz.js"></script>
   <script src="js/chat.js"></script>
 </body>
 </html>
