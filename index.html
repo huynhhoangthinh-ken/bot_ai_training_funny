@@ -3,124 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Đại Chúng Properties | Trợ Lý Hổ AI Thông Minh</title>
-  <meta name="description" content="Trợ lý AI Đào Tạo & Chốt Deal Bất Động Sản Đại Chúng Properties">
+  <title>Đại Chúng Properties | Trợ Lý AI Bất Động Sản</title>
+  <meta name="description" content="Trợ lý AI Đào Tạo & Tư Vấn Bất Động Sản Đại Chúng Properties phong cách Apple tối giản tinh tế">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐯</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e293b'/><text x='50%' y='62%' font-family='sans-serif' font-size='48' font-weight='bold' fill='white' text-anchor='middle'>ĐP</text></svg>">
 </head>
 <body>
 
   <div class="app-root-container">
     <!-- =========================================================================
-         1. TOP HEADER (LOGO | ĐẠI CHÚNG PROPERTIES | CHẾ ĐỘ | TÍNH CÁCH)
+         1. TOP NAVIGATION BAR (APPLE MINIMALIST STYLE)
          ========================================================================= -->
     <header class="app-header">
       <div class="header-inner">
-        <!-- Logo & Brand Name -->
-        <div class="brand-group" id="brandLogoWrap" title="Bất Động Sản Đại Chúng Properties">
-          <div class="brand-logo-box" id="brandLogoBox">
-            <span class="logo-text-emblem">ĐC</span>
+        <!-- Brand Monogram & Title -->
+        <div class="brand-group" id="brandLogoWrap">
+          <div class="brand-monogram">
+            <span>ĐP</span>
           </div>
           <div class="brand-text">
-            <h1 id="brandNameHeader">ĐẠI CHÚNG PROPERTIES</h1>
+            <h1 id="brandNameHeader">Đại Chúng</h1>
+            <span class="brand-sub">Properties</span>
           </div>
         </div>
 
-        <!-- Selectors: Chế độ AI & Tính cách -->
+        <!-- Pill Action Buttons -->
         <div class="header-controls">
-          <!-- Chế độ AI Selector -->
-          <div class="compact-select-wrap">
-            <select id="aiModeSelect" class="compact-dropdown" title="Chọn Chế độ AI">
-              <option value="deepseek-chat" selected>⚡ Phản hồi nhanh</option>
-              <option value="deepseek-reasoner">🧠 Suy luận sâu</option>
-            </select>
-          </div>
-
-          <!-- Tính cách Selector -->
-          <div class="compact-select-wrap">
-            <select id="personalitySelect" class="compact-dropdown" title="Chọn Tính cách của Hổ">
-              <option value="hai_huoc" selected>🐯 Hổ Hài Hước</option>
-              <option value="master_sales">👑 Sát Thủ Chốt Deal</option>
-              <option value="cute_dongvien">✨ Cute Động Viên</option>
-              <option value="triet_ly">🧘 Triết Lý Bác Học</option>
-            </select>
-          </div>
-
-          <!-- Clear Chat & Quiz -->
-          <button class="btn-ctrl-gold" id="openQuizModalBtn" title="Trắc nghiệm đo EQ Sales">
-            <span>🎮 Test EQ</span>
+          <button class="pill-btn" id="toggleExpertModeBtn" title="Chuyển chế độ Thổ địa BĐS">
+            <span class="pill-icon">🧭</span>
+            <span class="pill-label">Thổ địa</span>
           </button>
 
-          <button class="btn-ctrl-icon" id="clearChatBtn" title="Xóa lịch sử chat">
-            🗑️
+          <button class="pill-btn highlight-pill" id="openPersonalityModalBtn" title="Chọn tính cách của Trợ lý AI">
+            <span class="pill-icon">✨</span>
+            <span class="pill-label">Tính cách</span>
+          </button>
+
+          <button class="icon-circle-btn" id="clearChatBtn" title="Xóa lịch sử trò chuyện">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
           </button>
         </div>
       </div>
     </header>
 
     <!-- =========================================================================
-         2. MAIN CHAT FEED (CHIẾM TRỌN 80% - 85% MÀN HÌNH)
+         2. MAIN CHAT & HERO FEED (APPLE CARD DESIGN)
          ========================================================================= -->
     <main class="chat-main-layout">
       <div class="chat-container">
+        
+        <!-- Category Subtitle -->
+        <div class="chat-category-tag">TRỢ LÝ BẤT ĐỘNG SẢN</div>
+
         <div class="chat-messages-container" id="chatFeed">
-          <!-- Initial messages dynamically injected by chat.js -->
+          
+          <!-- Hero Assistant Welcome Card (Apple Style) -->
+          <div class="hero-assistant-card" id="heroWelcomeCard">
+            <div class="hero-card-header">
+              <div class="assistant-avatar-outline">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a8 8 0 0 0-8 8c0 3.5 2.2 6.5 5.5 7.6V20a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-2.4c3.3-1.1 5.5-4.1 5.5-7.6a8 8 0 0 0-8-8z"/>
+                  <path d="M9 10a3 3 0 0 1 6 0"/>
+                </svg>
+              </div>
+              <div class="hero-greeting-text">
+                <h2>Chào Ken,</h2>
+                <p>Hôm nay, mình cùng tìm một bất động sản thật đúng.</p>
+              </div>
+            </div>
+
+            <!-- Quick Action 3-Card Grid -->
+            <div class="hero-quick-grid">
+              <button class="hero-quick-btn" data-prompt="Tìm nhà ở chất lượng cho gia đình tại khu vực TP.HCM và các đại đô thị">
+                <span class="quick-icon">🏠</span>
+                <span class="quick-title">Tìm nhà ở</span>
+              </button>
+              <button class="hero-quick-btn" data-prompt="Phân tích cơ hội đầu tư BĐS sinh lời cao nhất hiện nay tại các dự án Đại Chúng">
+                <span class="quick-icon">📈</span>
+                <span class="quick-title">Xem cơ hội đầu tư</span>
+              </button>
+              <button class="hero-quick-btn" data-prompt="Định giá khu vực và tiềm năng tăng trưởng hạ tầng Thủ Đức, Vũng Tàu, Đồng Nai">
+                <span class="quick-icon">📍</span>
+                <span class="quick-title">Định giá khu vực</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Chat Messages injected by chat.js -->
         </div>
       </div>
     </main>
 
     <!-- =========================================================================
-         3. BOTTOM ACTION BAR (3 NÚT NHƯ BẢN VẼ: BÓI QUẺ | NĂNG LƯỢNG | HÔM NAY MUA GÌ)
+         3. BOTTOM ACTION DOCK (APPLE FLOATING DOCK)
          ========================================================================= -->
-    <div class="bottom-action-grid">
-      <button class="action-tab-btn" data-text="Bói cho tôi 1 quẻ may mắn chốt cọc tháng này!">
-        <span class="tab-icon">🔮</span>
-        <span class="tab-title">Bói quẻ chốt cọc</span>
+    <div class="bottom-floating-dock">
+      <button class="dock-tab-btn" data-prompt="Tổng hợp các bất động sản chất lượng và dự án tốt nhất hiện nay của Đại Chúng">
+        <div class="dock-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <span class="dock-label">Bất động sản chất lượng</span>
       </button>
-      <button class="action-tab-btn" data-text="Truyền cho tôi 1 liều năng lượng chốt deal thần tốc và bí quyết đối đáp khách giàu!">
-        <span class="tab-icon">🔥</span>
-        <span class="tab-title">Năng lượng chốt deal</span>
+
+      <button class="dock-tab-btn active" data-prompt="Truyền cho tôi 1 liều năng lượng chốt deal thần tốc và các kỹ năng xử lý từ chối của khách hàng giàu!">
+        <div class="dock-icon-box active-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <span class="dock-label">Năng lượng chốt deal</span>
       </button>
-      <button class="action-tab-btn" data-text="Hôm nay có dự án nào hot nhất của Đại Chúng (Blanca City, Sola The Global City, Urban Green...) nên tư vấn cho khách?">
-        <span class="tab-icon">🛒</span>
-        <span class="tab-title">Hôm nay mua gì?</span>
+
+      <button class="dock-tab-btn" data-prompt="Hôm nay mua gì? Phân tích căn hộ và biệt thự có chính sách bán hàng tốt nhất tuần này">
+        <div class="dock-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <span class="dock-label">Hôm nay mua gì?</span>
       </button>
     </div>
 
     <!-- =========================================================================
-         4. CHAT INPUT BAR
+         4. APPLE CHAT INPUT BAR
          ========================================================================= -->
     <footer class="app-chat-footer">
       <div class="chat-input-wrapper">
-        <textarea id="chatInputArea" class="chat-textarea" placeholder="Nhắn tin với Cọp AI hoặc bấm micro để nói..." rows="1"></textarea>
+        <textarea id="chatInputArea" class="chat-textarea" placeholder="Nhắn tin hoặc bấm micro để nói..." rows="1"></textarea>
         <button id="voiceInputBtn" class="chat-voice-btn" title="Nói bằng giọng nói Tiếng Việt">
-          <span class="mic-icon">🎙️</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
         </button>
         <button id="sendMsgBtn" class="chat-send-action-btn" title="Gửi tin nhắn">
-          <span>GỬI</span> ➔
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>
       </div>
     </footer>
   </div>
 
   <!-- =========================================================================
-       MODAL: TRẮC NGHIỆM ĐO EQ & BÓI TÍNH CÁCH SALES BĐS
+       MODAL: TÍNH CÁCH AI (APPLE SHEET STYLE)
        ========================================================================= -->
-  <div class="modal-backdrop" id="quizModal">
-    <div class="modal-card" style="max-width: 640px;">
-      <div class="modal-header" style="background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); border-bottom: 1.5px solid #f472b6;">
+  <div class="modal-backdrop" id="personalityModal">
+    <div class="modal-card">
+      <div class="modal-header">
         <div class="modal-title">
-          <span style="font-size: 1.6rem;">🎮</span>
+          <span style="font-size: 1.3rem;">✨</span>
           <div>
-            <h3 style="color: #9d174d;">TRẮC NGHIỆM TÍNH CÁCH & ĐO EQ SALES BĐS</h3>
-            <p>Khám phá bạn là hệ chiến binh nào trong làng chốt deal Đại Chúng!</p>
+            <h3>TÍNH CÁCH TRỢ LÝ AI</h3>
+            <p>Chọn phong cách phản hồi phù hợp với bạn</p>
           </div>
         </div>
-        <button class="modal-close-btn" id="closeQuizModalBtn">✕</button>
+        <button class="modal-close-btn" id="closePersonalityModalBtn">✕</button>
       </div>
 
-      <div class="modal-body" id="quizModalBody">
-        <!-- Content dynamically rendered by js/quiz.js -->
+      <div class="modal-body">
+        <div class="personality-options-grid">
+          <div class="personality-item active" data-value="hai_huoc">
+            <span class="p-icon">🐯</span>
+            <div>
+              <strong>Hổ Hài Hước</strong>
+              <p>Dí dỏm, tấu hài, giải tỏa căng thẳng sau ngày làm việc</p>
+            </div>
+          </div>
+          <div class="personality-item" data-value="master_sales">
+            <span class="p-icon">👑</span>
+            <div>
+              <strong>Sát Thủ Chốt Deal</strong>
+              <p>Thực chiến, đòn bẩy tâm lý và bí kíp chốt cọc nhanh</p>
+            </div>
+          </div>
+          <div class="personality-item" data-value="cute_dongvien">
+            <span class="p-icon">💖</span>
+            <div>
+              <strong>Cute Động Viên</strong>
+              <p>Ngọt ngào, tiếp thêm năng lượng và tinh thần tích cực</p>
+            </div>
+          </div>
+          <div class="personality-item" data-value="triet_ly">
+            <span class="p-icon">🧘</span>
+            <div>
+              <strong>Triết Lý Bác Học</strong>
+              <p>Sâu sắc, nhìn nhận chu kỳ và quy luật thị trường</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -131,7 +196,6 @@
   <!-- Javascript Modules -->
   <script src="js/data.js"></script>
   <script src="js/project_database.js"></script>
-  <script src="js/quiz.js"></script>
   <script src="js/chat.js"></script>
 </body>
 </html>
