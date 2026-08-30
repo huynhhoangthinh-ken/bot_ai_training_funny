@@ -1104,9 +1104,10 @@ KIẾN THỨC CHUYÊN MÔN:
       } catch (e) {}
     }
 
-    this.renderBotMessage(`Hú le anh em <strong>ĐẠI CHÚNG PROPERTIES</strong>! 🐯 Ta là <strong>HỔ AI MASTER SALES</strong> đâyyy!<br><br>
-    Ta sẵn sàng giải đáp mọi thắc mắc dự án, phân tích thị trường, luyện đối đáp chốt sale, bói quẻ may mắn hay chém gió giải tỏa stress cùng bạn! 😎<br>
-    👉 Bạn có thể chọn <strong>⚡ Phản Hồi Nhanh</strong> hoặc <strong>🧠 Suy Luận Sâu</strong> ở thanh menu phía trên nhé!`);
+    this.renderBotMessage(`Hú le anh em <strong>ĐẠI CHÚNG PROPERTIES</strong>! 🐯 Ta là <strong>HỔ AI MASTER SALES</strong> lầy lội đây đâyyy!<br><br>
+    Được trang bị trí tuệ từ anh em supersales của thế giới và Đại Chúng, ta sẵn sàng giải đáp mọi thắc mắc dự án, chiến lược săn khách, luyện đối đáp chốt sale hay chém gió giải tỏa stress cùng bạn! 😎 Khách có thắc mắc gì cứ gửi ta.<br><br>
+    👉 Bạn có thể chuyển đổi linh hoạt giữa các tính cách và chế độ AI ở thanh menu bên trên nhé!<br>
+    <em>Thông tin dự án thì ta làm trùm, chiến thuật chốt sales, bán hàng thì ta cũng bá đạo luôn! 🐯💰🔥</em>`);
   }
 
   /* --------------------------------------------------------------------------
