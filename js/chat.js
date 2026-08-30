@@ -15,6 +15,7 @@ class TigerChatApp {
     this.soundToggleBtn = document.getElementById('soundToggleBtn');
     this.clearChatBtn = document.getElementById('clearChatBtn');
     this.aiModeSelect = document.getElementById('aiModeSelect');
+    this.voiceInputBtn = document.getElementById('voiceInputBtn');
 
     // Brand Elements
     this.brandLogoWrap = document.getElementById('brandLogoWrap');
@@ -64,6 +65,8 @@ class TigerChatApp {
     this.personality = 'hai_huoc';
     this.knowledgeDocs = [];
     this.isTyping = false;
+    this.isListening = false;
+    this.recognition = null;
     
     // AI Configuration State - DeepSeek Default
     this.aiProvider = 'deepseek';
@@ -81,6 +84,7 @@ class TigerChatApp {
     this.loadKnowledge();
     this.loadChatHistory();
     this.bindEvents();
+    this.setupSpeechRecognition();
     this.startMascotRandomThoughts();
   }
 
@@ -570,7 +574,13 @@ KIẾN THỨC CHUYÊN MÔN:
 - Cực kỳ am hiểu toàn bộ các dự án Đại Chúng Properties phân phối (Blanca City Vũng Tàu - Sun Group, The Global City & Bán đảo Sola, The Rivus Elie Saab, Urban Green, The MarQ Quận 1, Gladia, Elyse Island, Grand Marina Saigon, v.v.).
 - Nắm vững chi tiết từng chính sách bán hàng (CSBH), quà tặng, tiến độ thanh toán, ngân hàng hỗ trợ ân hạn nợ gốc và lãi suất 0%, bảng giá, layout mặt bằng, tiêu chuẩn bàn giao và điểm nhấn bán hàng (USP).
 - Xử lý từ chối giá cao, pháp lý, kỹ năng chốt sales, tìm kiếm khách hàng thời 4.0.
-- QUY TẮC PHẢN HỒI: Trả lời bằng tiếng Việt tự nhiên, hài hước, súc tích, chia gạch đầu dòng rõ ràng, định dạng HTML thẻ <strong>, <em>, <br>. LUÔN TRẢ LỜI ĐẦY ĐỦ TRỌN VẸN TẤT CẢ CÁC Ý, KHÔNG BAO GIỜ DỪNG DỞ DANG GIỮA CÂU.
+
+QUY TẮC TRÌNH BÀY (BẮT BUỘC ĐỂ KHÔNG BỊ DÍNH CHỮ LUÔN TUỒN):
+- Chia câu trả lời thành từng đoạn ngắn (2-3 câu mỗi đoạn), cách nhau bởi 1 dòng trống.
+- Các bước thực hiện phải viết rõ ràng: Bước 1, Bước 2, Bước 3... và xuống dòng riêng biệt.
+- Sử dụng các gạch đầu dòng "- " cho từng ý nhỏ.
+- Sử dụng định dạng in đậm **từ khóa quan trọng** để nổi bật nội dung.
+- Dùng ngôn ngữ tự nhiên, hài hước, súc tích, dễ nhìn trên màn hình điện thoại di động (Mobile).
 `;
 
     if (this.personality === 'hai_huoc') {
@@ -831,13 +841,119 @@ KIẾN THỨC CHUYÊN MÔN:
   }
 
   formatMarkdownToHtml(text) {
-    return text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(/### (.*?)\n/g, '<h4>$1</h4>')
-      .replace(/## (.*?)\n/g, '<h3>$1</h3>')
-      .replace(/\n\n/g, '<br><br>')
-      .replace(/\n/g, '<br>');
+    if (!text) return '';
+    let formatted = text;
+
+    // Convert Windows line breaks
+    formatted = formatted.replace(/\r\n/g, '\n');
+
+    // Bold & Italic
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    // Headers
+    formatted = formatted.replace(/^###\s+(.*$)/gim, '<h4 class="chat-h4">$1</h4>');
+    formatted = formatted.replace(/^##\s+(.*$)/gim, '<h3 class="chat-h3">$1</h3>');
+    formatted = formatted.replace(/^#\s+(.*$)/gim, '<h2 class="chat-h2">$1</h2>');
+
+    // Horizontal Rule
+    formatted = formatted.replace(/---+/g, '<hr class="chat-divider">');
+
+    // Steps formatting (e.g. "Bước 1:", "Bước 2:")
+    formatted = formatted.replace(/(Bước\s+\d+:?)/gi, '<strong class="chat-step-badge">🚀 $1</strong>');
+
+    // Bullet items
+    formatted = formatted.replace(/^\s*[-*•]\s+(.*$)/gim, '<div class="chat-bullet-row"><span class="chat-bullet-dot">🐾</span><span class="chat-bullet-text">$1</span></div>');
+
+    // Numbered items
+    formatted = formatted.replace(/^\s*(\d+)\.\s+(.*$)/gim, '<div class="chat-bullet-row"><span class="chat-num-badge">$1</span><span class="chat-bullet-text">$2</span></div>');
+
+    // Paragraph breaks & newlines
+    formatted = formatted.replace(/\n\n+/g, '<div class="chat-p-break"></div>');
+    formatted = formatted.replace(/\n/g, '<br>');
+
+    return formatted;
+  }
+
+  /* --------------------------------------------------------------------------
+     VOICE INPUT (SPEECH-TO-TEXT TIẾNG VIỆT)
+     -------------------------------------------------------------------------- */
+  setupSpeechRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      if (this.voiceInputBtn) {
+        this.voiceInputBtn.addEventListener('click', () => {
+          this.showToast('Trình duyệt này chưa hỗ trợ Speech API. Hãy dùng Chrome hoặc Safari mới nhất nhé! 🎙️');
+        });
+      }
+      return;
+    }
+
+    this.recognition = new SpeechRecognition();
+    this.recognition.lang = 'vi-VN';
+    this.recognition.continuous = false;
+    this.recognition.interimResults = true;
+
+    this.recognition.onstart = () => {
+      this.isListening = true;
+      if (this.voiceInputBtn) this.voiceInputBtn.classList.add('listening');
+      this.showToast('🎙️ Đang nghe bạn nói Tiếng Việt... Hãy nói câu hỏi nhé!');
+      if (this.bubbleSpeech) {
+        this.bubbleSpeech.textContent = "Cọp đang lắng nghe giọng nói của bạn nè... 🎙️🐯";
+      }
+    };
+
+    this.recognition.onresult = (event) => {
+      let interimTranscript = '';
+      let finalTranscript = '';
+
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          finalTranscript += event.results[i][0].transcript;
+        } else {
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
+
+      const text = finalTranscript || interimTranscript;
+      if (text && this.inputArea) {
+        this.inputArea.value = text;
+        this.inputArea.style.height = 'auto';
+        this.inputArea.style.height = (this.inputArea.scrollHeight) + 'px';
+      }
+    };
+
+    this.recognition.onerror = (event) => {
+      this.isListening = false;
+      if (this.voiceInputBtn) this.voiceInputBtn.classList.remove('listening');
+      console.warn('Speech recognition error:', event.error);
+      if (event.error === 'not-allowed') {
+        this.showToast('⚠️ Vui lòng cấp quyền Microphone cho trình duyệt để nói nhé!');
+      }
+    };
+
+    this.recognition.onend = () => {
+      this.isListening = false;
+      if (this.voiceInputBtn) this.voiceInputBtn.classList.remove('listening');
+      if (this.inputArea && this.inputArea.value.trim().length > 0) {
+        this.inputArea.focus();
+        this.showToast('✅ Đã nhận giọng nói thành công! Bấm Gửi để hỏi Cọp nhé!');
+      }
+    };
+
+    if (this.voiceInputBtn) {
+      this.voiceInputBtn.addEventListener('click', () => {
+        if (this.isListening) {
+          this.recognition.stop();
+        } else {
+          try {
+            this.recognition.start();
+          } catch (e) {
+            console.error('Recognition start error:', e);
+          }
+        }
+      });
+    }
   }
 
   findMatchingMedia(query) {

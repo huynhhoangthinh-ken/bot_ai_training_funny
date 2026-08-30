@@ -201,7 +201,6 @@
       <div class="quick-chips-wrapper">
         <span class="chips-label">Gợi ý chém gió & xem hình:</span>
         <div class="chips-scroll" id="quickChipsScroll">
-          <button class="chip-item" style="border-color: #ec4899; color: #db2777;" onclick="window.salesQuiz && window.salesQuiz.openQuiz()">🎮 Test EQ & Bói Tính Cách Sales</button>
           <button class="chip-item" data-text="Chính sách bán hàng dự án Blanca City Vũng Tàu thế nào?">🏖️ CSBH Blanca City</button>
           <button class="chip-item" data-text="Bán đảo Sola The Global City có những điểm nổi bật gì?">🌐 Sola The Global City</button>
           <button class="chip-item" data-text="Làm sao để tìm khách hàng BĐS nét trong thời điểm cấm telesale?">🎯 Tìm khách BĐS thời 4.0</button>
@@ -211,9 +210,19 @@
         </div>
       </div>
 
+      <!-- Interactive Bottom Quiz Banner -->
+      <div class="bottom-quiz-strip" onclick="window.salesQuiz && window.salesQuiz.openQuiz()">
+        <span class="strip-icon">🎮</span>
+        <span class="strip-text"><strong>BÓI TÍNH CÁCH & TEST EQ SALES:</strong> Xem bạn thuộc hệ Cọp Sát Thủ, Khách VIP hay Idol Triệu View!</span>
+        <span class="strip-btn">Bắt Đầu ➔</span>
+      </div>
+
       <!-- Input Bar -->
       <div class="chat-input-wrapper">
-        <textarea id="chatInputArea" class="chat-textarea" placeholder="Nhắn tin với Cọp AI... (Bấm Enter để gửi)" rows="1"></textarea>
+        <textarea id="chatInputArea" class="chat-textarea" placeholder="Nhắn tin hoặc bấm micro để nói... (Enter gửi)" rows="1"></textarea>
+        <button id="voiceInputBtn" class="chat-voice-btn" title="Nói bằng giọng nói Tiếng Việt">
+          <span class="mic-icon">🎙️</span>
+        </button>
         <button id="sendMsgBtn" class="chat-send-action-btn" title="Gửi tin nhắn">
           <span>GỬI</span> ➔
         </button>
