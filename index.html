@@ -31,13 +31,6 @@
 
       <!-- Quick Action Controls -->
       <div class="header-controls">
-        <!-- AI Engine / API Key Config Button -->
-        <button class="btn-ctrl-gemini connected" id="openApiKeyModalBtn" title="Kết nối DeepSeek AI">
-          <span class="gemini-sparkle">🐳</span>
-          <span id="apiKeyStatusText">DeepSeek AI Đã Kết Nối</span>
-          <span class="status-dot-gemini" id="apiKeyStatusDot"></span>
-        </button>
-
         <!-- Personality Mood Selector -->
         <div class="personality-selector-wrap">
           <label for="personalitySelect">Tính cách:</label>
@@ -51,7 +44,7 @@
 
         <!-- Knowledge Base Button -->
         <button class="btn-ctrl-gold" id="openKnowledgeModalBtn" title="Nạp thêm tài liệu, bảng giá, hình ảnh cho Hổ học">
-          <span>📚 Nạp Dữ Liệu & Ảnh</span>
+          <span>📚 Nạp Dự Án & Ảnh</span>
           <span class="badge-count" id="knowledgeCountBadge">0</span>
         </button>
 
@@ -63,6 +56,11 @@
         <!-- Clear Chat -->
         <button class="btn-ctrl-icon" id="clearChatBtn" title="Xóa lịch sử chat để bắt đầu lại">
           🗑️
+        </button>
+
+        <!-- Subtle Settings Button -->
+        <button class="btn-ctrl-icon" id="openApiKeyModalBtn" title="Cài đặt AI Engine">
+          ⚙️
         </button>
       </div>
     </div>
