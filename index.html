@@ -2,218 +2,97 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cọp AI Đại Chúng | Trợ Lý AI Đào Tạo Bất Động Sản Thông Minh</title>
-  <meta name="description" content="Kênh chat AI thông minh cùng Linh vật Con Cọp Hài Hước - Bất Động Sản Đại Chúng Properties">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Đại Chúng Properties | Trợ Lý Hổ AI Thông Minh</title>
+  <meta name="description" content="Trợ lý AI Đào Tạo & Chốt Deal Bất Động Sản Đại Chúng Properties">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/mascot.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐯</text></svg>">
 </head>
 <body>
 
-  <!-- =========================================================================
-       APP HEADER / TOP BAR (LOGO ĐẠI CHÚNG & GEMINI AI STATUS)
-       ========================================================================= -->
-  <header class="app-header">
-    <div class="header-inner">
-      <!-- Brand Logo Đại Chúng -->
-      <div class="brand-group">
-        <div class="brand-logo-container" id="brandLogoWrap" title="Bất Động Sản Đại Chúng Properties">
+  <div class="app-root-container">
+    <!-- =========================================================================
+         1. TOP HEADER (LOGO | ĐẠI CHÚNG PROPERTIES | CHẾ ĐỘ | TÍNH CÁCH)
+         ========================================================================= -->
+    <header class="app-header">
+      <div class="header-inner">
+        <!-- Logo & Brand Name -->
+        <div class="brand-group" id="brandLogoWrap" title="Bất Động Sản Đại Chúng Properties">
           <div class="brand-logo-box" id="brandLogoBox">
             <span class="logo-text-emblem">ĐC</span>
           </div>
-        </div>
-        <div class="brand-text">
-          <h1 id="brandNameHeader">ĐẠI CHÚNG PROPERTIES</h1>
-          <p><span class="online-indicator"></span> Trợ lý Hổ AI • Bất Động Sản Đại Chúng</p>
-        </div>
-      </div>
-
-      <!-- Quick Action Controls -->
-      <div class="header-controls">
-        <!-- AI Mode Selector: Nhanh vs Suy Luận Sâu -->
-        <div class="personality-selector-wrap">
-          <label for="aiModeSelect">Chế độ AI:</label>
-          <select id="aiModeSelect" class="personality-dropdown">
-            <option value="deepseek-chat" selected>⚡ Phản Hồi Nhanh</option>
-            <option value="deepseek-reasoner">🧠 Suy Luận Sâu</option>
-          </select>
-        </div>
-
-        <!-- Personality Mood Selector -->
-        <div class="personality-selector-wrap">
-          <label for="personalitySelect">Tính cách:</label>
-          <select id="personalitySelect" class="personality-dropdown">
-            <option value="hai_huoc" selected>🐯 Hổ Hài Hước</option>
-            <option value="master_sales">👑 Sát Thủ Chốt Deal</option>
-            <option value="cute_dongvien">✨ Cute Động Viên</option>
-            <option value="triet_ly">🧘 Triết Lý Bác Học</option>
-          </select>
-        </div>
-
-        <!-- Fun Sales EQ Quiz Button -->
-        <button class="btn-ctrl-gold" id="openQuizModalBtn" style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); box-shadow: 0 4px 12px rgba(236, 72, 153, 0.35);" title="Trắc nghiệm đo EQ & Bói tính cách Sales BĐS">
-          <span>🎮 Test EQ Sales</span>
-        </button>
-
-        <!-- Sound Toggle -->
-        <button class="btn-ctrl-icon" id="soundToggleBtn" title="Bật/Tắt âm thanh">
-          🔊
-        </button>
-
-        <!-- Clear Chat -->
-        <button class="btn-ctrl-icon" id="clearChatBtn" title="Xóa lịch sử chat để bắt đầu lại">
-          🗑️
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- =========================================================================
-       MAIN CHAT PLAYGROUND (FULL SCREEN CENTRIC)
-       ========================================================================= -->
-  <main class="chat-main-layout">
-    
-    <!-- Center Mascot Stage & Chat Feed -->
-    <div class="chat-container">
-
-      <!-- Interactive Mascot Stage (Header Banner inside Chat) -->
-      <div class="mascot-hero-stage">
-        <div class="mascot-avatar-large" id="mainMascotFace">
-          <div class="mascot-halo"></div>
-          
-          <!-- Handcrafted Animated Vector SVG Tiger Character -->
-          <svg viewBox="0 0 200 200" class="tiger-svg-hero" id="tigerSvgEl" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="tigerFur" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ff9800"/>
-                <stop offset="50%" stop-color="#f57c00"/>
-                <stop offset="100%" stop-color="#e65100"/>
-              </linearGradient>
-              <linearGradient id="tigerCheeks" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="100%" stop-color="#ffe0b2"/>
-              </linearGradient>
-              <linearGradient id="goldCrown" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fff59d"/>
-                <stop offset="50%" stop-color="#ffd700"/>
-                <stop offset="100%" stop-color="#ff8f00"/>
-              </linearGradient>
-            </defs>
-
-            <!-- Tiger Ears (Animated) -->
-            <g class="tiger-ear-left">
-              <ellipse cx="56" cy="50" rx="20" ry="24" fill="url(#tigerFur)" stroke="#261005" stroke-width="3"/>
-              <ellipse cx="56" cy="50" rx="12" ry="14" fill="#ffab91"/>
-            </g>
-            <g class="tiger-ear-right">
-              <ellipse cx="144" cy="50" rx="20" ry="24" fill="url(#tigerFur)" stroke="#261005" stroke-width="3"/>
-              <ellipse cx="144" cy="50" rx="12" ry="14" fill="#ffab91"/>
-            </g>
-
-            <!-- Tiger Head -->
-            <ellipse cx="100" cy="98" rx="58" ry="50" fill="url(#tigerFur)" stroke="#261005" stroke-width="3.5"/>
-
-            <!-- Forehead King Stripes (Chữ Vương 王) -->
-            <path d="M 90 56 L 110 56" stroke="#261005" stroke-width="4" stroke-linecap="round"/>
-            <path d="M 86 66 L 114 66" stroke="#261005" stroke-width="4" stroke-linecap="round"/>
-            <path d="M 100 52 L 100 76" stroke="#261005" stroke-width="4" stroke-linecap="round"/>
-
-            <!-- Side Stripes -->
-            <path d="M 45 92 Q 60 95 52 104" stroke="#261005" stroke-width="4" stroke-linecap="round" fill="none"/>
-            <path d="M 48 110 Q 62 110 56 120" stroke="#261005" stroke-width="4" stroke-linecap="round" fill="none"/>
-            <path d="M 155 92 Q 140 95 148 104" stroke="#261005" stroke-width="4" stroke-linecap="round" fill="none"/>
-            <path d="M 152 110 Q 138 110 144 120" stroke="#261005" stroke-width="4" stroke-linecap="round" fill="none"/>
-
-            <!-- Big White Cheeks -->
-            <ellipse cx="85" cy="120" rx="20" ry="16" fill="url(#tigerCheeks)"/>
-            <ellipse cx="115" cy="120" rx="20" ry="16" fill="url(#tigerCheeks)"/>
-
-            <!-- Cute Pink Nose -->
-            <polygon points="100,110 90,100 110,100" fill="#e91e63" stroke="#261005" stroke-width="2"/>
-
-            <!-- Funny Mouth & Fangs -->
-            <path id="tigerMouth" d="M 86 120 Q 100 134 114 120" stroke="#261005" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <polygon points="92,120 95,128 98,120" fill="#ffffff" stroke="#261005" stroke-width="1.5"/>
-            <polygon points="102,120 105,128 108,120" fill="#ffffff" stroke="#261005" stroke-width="1.5"/>
-
-            <!-- Funny Whiskers (Wiggling) -->
-            <g class="tiger-whiskers">
-              <line x1="70" y1="116" x2="38" y2="112" stroke="#261005" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="70" y1="123" x2="36" y2="128" stroke="#261005" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="130" y1="116" x2="162" y2="112" stroke="#261005" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="130" y1="123" x2="164" y2="128" stroke="#261005" stroke-width="2.5" stroke-linecap="round"/>
-            </g>
-
-            <!-- Expressive Eyes (Blinking & Tracking) -->
-            <g class="tiger-eyelids" id="tigerEyes">
-              <!-- Left Eye -->
-              <ellipse cx="76" cy="88" rx="16" ry="18" fill="#ffffff" stroke="#261005" stroke-width="3"/>
-              <g class="tiger-pupil-group" id="leftPupil">
-                <ellipse cx="77" cy="88" rx="9" ry="11" fill="#261005"/>
-                <circle cx="73" cy="83" r="4" fill="#ffffff"/>
-                <circle cx="80" cy="91" r="2" fill="#ffffff"/>
-              </g>
-
-              <!-- Right Eye -->
-              <ellipse cx="124" cy="88" rx="16" ry="18" fill="#ffffff" stroke="#261005" stroke-width="3"/>
-              <g class="tiger-pupil-group" id="rightPupil">
-                <ellipse cx="123" cy="88" rx="9" ry="11" fill="#261005"/>
-                <circle cx="119" cy="83" r="4" fill="#ffffff"/>
-                <circle cx="126" cy="91" r="2" fill="#ffffff"/>
-              </g>
-            </g>
-
-            <!-- Blushing Cheeks -->
-            <ellipse cx="65" cy="116" rx="8" ry="5" fill="#ff5252" opacity="0.6"/>
-            <ellipse cx="135" cy="116" rx="8" ry="5" fill="#ff5252" opacity="0.6"/>
-
-            <!-- Shiny Golden Crown -->
-            <g class="tiger-crown">
-              <polygon points="78,48 85,26 94,40 100,20 106,40 115,26 122,48" fill="url(#goldCrown)" stroke="#aa8212" stroke-width="2"/>
-              <circle cx="85" cy="26" r="3" fill="#ef4444"/>
-              <circle cx="100" cy="20" r="4" fill="#06b6d4"/>
-              <circle cx="115" cy="26" r="3" fill="#ef4444"/>
-            </g>
-          </svg>
-        </div>
-
-        <div class="mascot-stage-greeting">
-          <div class="mascot-bubble-talk" id="mascotBubbleSpeech">
-            Chào anh em Đại Chúng! Ta là Hổ AI Master Sales lầy lội đây! Khách có thắc mắc gì cứ gửi ta tiếp chiêu! 😎🐯💰
+          <div class="brand-text">
+            <h1 id="brandNameHeader">ĐẠI CHÚNG PROPERTIES</h1>
           </div>
-          <div class="mascot-mood-tag" id="mascotMoodTag">Tâm trạng: Đang cực kỳ sung sức 🔥</div>
+        </div>
+
+        <!-- Selectors: Chế độ AI & Tính cách -->
+        <div class="header-controls">
+          <!-- Chế độ AI Selector -->
+          <div class="compact-select-wrap">
+            <select id="aiModeSelect" class="compact-dropdown" title="Chọn Chế độ AI">
+              <option value="deepseek-chat" selected>⚡ Phản hồi nhanh</option>
+              <option value="deepseek-reasoner">🧠 Suy luận sâu</option>
+            </select>
+          </div>
+
+          <!-- Tính cách Selector -->
+          <div class="compact-select-wrap">
+            <select id="personalitySelect" class="compact-dropdown" title="Chọn Tính cách của Hổ">
+              <option value="hai_huoc" selected>🐯 Hổ Hài Hước</option>
+              <option value="master_sales">👑 Sát Thủ Chốt Deal</option>
+              <option value="cute_dongvien">✨ Cute Động Viên</option>
+              <option value="triet_ly">🧘 Triết Lý Bác Học</option>
+            </select>
+          </div>
+
+          <!-- Clear Chat & Quiz -->
+          <button class="btn-ctrl-gold" id="openQuizModalBtn" title="Trắc nghiệm đo EQ Sales">
+            <span>🎮 Test EQ</span>
+          </button>
+
+          <button class="btn-ctrl-icon" id="clearChatBtn" title="Xóa lịch sử chat">
+            🗑️
+          </button>
         </div>
       </div>
+    </header>
 
-      <!-- Messages Scroll Area -->
-      <div class="chat-messages-container" id="chatFeed">
-        <!-- Initial messages dynamically injected by chat.js -->
-      </div>
-
-      <!-- Quick Suggestion Buttons Bar -->
-      <div class="quick-chips-wrapper">
-        <span class="chips-label">Gợi ý chém gió & xem hình:</span>
-        <div class="chips-scroll" id="quickChipsScroll">
-          <button class="chip-item" data-text="Chính sách bán hàng dự án Blanca City Vũng Tàu thế nào?">🏖️ CSBH Blanca City</button>
-          <button class="chip-item" data-text="Bán đảo Sola The Global City có những điểm nổi bật gì?">🌐 Sola The Global City</button>
-          <button class="chip-item" data-text="Làm sao để tìm khách hàng BĐS nét trong thời điểm cấm telesale?">🎯 Tìm khách BĐS thời 4.0</button>
-          <button class="chip-item" data-text="Khách bảo thị trường đang đóng băng chưa muốn mua thì đối đáp sao?">🥊 Xử lý khách do dự</button>
-          <button class="chip-item" data-text="Kể cho tôi nghe 1 câu chuyện cười về nghề BĐS đi Cọp!">🤣 Kể chuyện cười BĐS</button>
-          <button class="chip-item" data-text="Bói cho tôi 1 quẻ may mắn chốt cọc tháng này!">🔮 Bói quẻ chốt cọc</button>
+    <!-- =========================================================================
+         2. MAIN CHAT FEED (CHIẾM TRỌN 80% - 85% MÀN HÌNH)
+         ========================================================================= -->
+    <main class="chat-main-layout">
+      <div class="chat-container">
+        <div class="chat-messages-container" id="chatFeed">
+          <!-- Initial messages dynamically injected by chat.js -->
         </div>
       </div>
+    </main>
 
-      <!-- Interactive Bottom Quiz Banner -->
-      <div class="bottom-quiz-strip" onclick="window.salesQuiz && window.salesQuiz.openQuiz()">
-        <span class="strip-icon">🎮</span>
-        <span class="strip-text"><strong>BÓI TÍNH CÁCH & TEST EQ SALES:</strong> Xem bạn thuộc hệ Cọp Sát Thủ, Khách VIP hay Idol Triệu View!</span>
-        <span class="strip-btn">Bắt Đầu ➔</span>
-      </div>
+    <!-- =========================================================================
+         3. BOTTOM ACTION BAR (3 NÚT NHƯ BẢN VẼ: BÓI QUẺ | NĂNG LƯỢNG | HÔM NAY MUA GÌ)
+         ========================================================================= -->
+    <div class="bottom-action-grid">
+      <button class="action-tab-btn" data-text="Bói cho tôi 1 quẻ may mắn chốt cọc tháng này!">
+        <span class="tab-icon">🔮</span>
+        <span class="tab-title">Bói quẻ chốt cọc</span>
+      </button>
+      <button class="action-tab-btn" data-text="Truyền cho tôi 1 liều năng lượng chốt deal thần tốc và bí quyết đối đáp khách giàu!">
+        <span class="tab-icon">🔥</span>
+        <span class="tab-title">Năng lượng chốt deal</span>
+      </button>
+      <button class="action-tab-btn" data-text="Hôm nay có dự án nào hot nhất của Đại Chúng (Blanca City, Sola The Global City, Urban Green...) nên tư vấn cho khách?">
+        <span class="tab-icon">🛒</span>
+        <span class="tab-title">Hôm nay mua gì?</span>
+      </button>
+    </div>
 
-      <!-- Input Bar -->
+    <!-- =========================================================================
+         4. CHAT INPUT BAR
+         ========================================================================= -->
+    <footer class="app-chat-footer">
       <div class="chat-input-wrapper">
-        <textarea id="chatInputArea" class="chat-textarea" placeholder="Nhắn tin hoặc bấm micro để nói... (Enter gửi)" rows="1"></textarea>
+        <textarea id="chatInputArea" class="chat-textarea" placeholder="Nhắn tin với Cọp AI hoặc bấm micro để nói..." rows="1"></textarea>
         <button id="voiceInputBtn" class="chat-voice-btn" title="Nói bằng giọng nói Tiếng Việt">
           <span class="mic-icon">🎙️</span>
         </button>
@@ -221,68 +100,8 @@
           <span>GỬI</span> ➔
         </button>
       </div>
-    </div>
-  </main>
-
-  <!-- =========================================================================
-       MODAL: CẤU HÌNH AI ENGINE (DEEPSEEK & GOOGLE GEMINI)
-       ========================================================================= -->
-  <div class="modal-backdrop" id="apiKeyModal">
-    <div class="modal-card" style="max-width: 580px;">
-      <div class="modal-header" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-bottom: 1.5px solid #93c5fd;">
-        <div class="modal-title">
-          <span style="font-size: 1.6rem;">🤖</span>
-          <div>
-            <h3 style="color: #1e40af;" id="modalAiTitle">KẾT NỐI AI ENGINE (DEEPSEEK & GEMINI)</h3>
-            <p>Chọn mô hình AI bạn muốn sử dụng cho website công ty!</p>
-          </div>
-        </div>
-        <button class="modal-close-btn" id="closeApiKeyModalBtn">✕</button>
-      </div>
-
-      <div class="modal-body">
-        <div class="form-group">
-          <label class="form-label">🎯 Chọn Nhà Cung Cấp AI:</label>
-          <select id="aiProviderSelect" class="form-input" style="font-weight: 700; color: #1d4ed8;">
-            <option value="deepseek" selected>🐳 DeepSeek AI (Siêu rẻ, thông minh đỉnh cao, tư duy sắc bén)</option>
-            <option value="gemini">✨ Google Gemini AI (Miễn phí 100% trên AI Studio)</option>
-          </select>
-        </div>
-
-        <div class="gemini-info-box" id="providerInfoBox">
-          <div style="font-weight: 700; color: #1e3a8a; margin-bottom: 4px;" id="infoBoxTitle">🐳 DeepSeek API:</div>
-          <p style="font-size: 0.85rem; color: #334155; line-height: 1.5;" id="infoBoxDesc">
-            1. Truy cập <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color: #2563eb; font-weight: 700; text-decoration: underline;">DeepSeek Platform (Bấm vào đây)</a>.<br>
-            2. Đăng ký & nạp $1 - $2 (khoảng 25k - 50k VNĐ chat cả năm không hết).<br>
-            3. Tạo API Key và dán vào bên dưới!
-          </p>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" id="apiKeyLabel">🔑 Dán DeepSeek API Key của bạn vào đây:</label>
-          <input type="password" id="geminiApiKeyInput" class="form-input" placeholder="sk-..." autocomplete="off">
-          <small style="color: var(--text-muted); display: block; margin-top: 4px;">
-            🔒 Key được lưu an toàn trực tiếp trên trình duyệt của bạn (Local Storage).
-          </small>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">🤖 Chọn Model:</label>
-          <select id="geminiModelSelect" class="form-input">
-            <!-- Dynamically populated based on provider -->
-          </select>
-        </div>
-
-        <div class="modal-actions">
-          <button class="btn-modal-cancel" id="removeApiKeyBtn" style="color: var(--accent-ruby); margin-right: auto; display: none;">Xóa Key</button>
-          <button class="btn-modal-cancel" id="cancelApiKeyBtn">Đóng</button>
-          <button class="btn-modal-save" id="saveApiKeyBtn" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">💾 Lưu & Kích Hoạt AI</button>
-        </div>
-      </div>
-    </div>
+    </footer>
   </div>
-
-
 
   <!-- =========================================================================
        MODAL: TRẮC NGHIỆM ĐO EQ & BÓI TÍNH CÁCH SALES BĐS

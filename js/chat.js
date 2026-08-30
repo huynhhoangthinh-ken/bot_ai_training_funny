@@ -323,6 +323,17 @@ class TigerChatApp {
       this.removeApiKeyBtn.addEventListener('click', () => this.removeAiConfig());
     }
 
+    // Bottom Action Tab Buttons (Bói quẻ | Năng lượng | Hôm nay mua gì)
+    document.querySelectorAll('.action-tab-btn').forEach(tabBtn => {
+      tabBtn.addEventListener('click', (e) => {
+        const text = e.currentTarget.getAttribute('data-text');
+        if (text) {
+          this.inputArea.value = text;
+          this.handleUserSend();
+        }
+      });
+    });
+
     // Quick chips
     document.querySelectorAll('.chip-item').forEach(chip => {
       chip.addEventListener('click', (e) => {
