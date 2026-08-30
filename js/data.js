@@ -7,7 +7,8 @@ const APP_DATA = {
   brand: {
     name: "ĐẠI CHÚNG PROPERTIES",
     shortName: "ĐẠI CHÚNG",
-    slogan: "Kiến Tạo Giá Trị Vững Bền • Trao Gửi Thịnh Vượng",
+    slogan: "Kết nối thành công — Kiến tạo di sản",
+    positioning: "Sang trọng kín đáo (Quiet Luxury) • Phân khúc Trung - Cao cấp & Hạng sang",
     logoUrl: "data/logo/LOGO_Logo-Dai-Chung-Properties.png",
     logoWhiteUrl: "data/logo/LOGO_Logo-Dai-Chung-Property-Chu-Trang.png"
   },

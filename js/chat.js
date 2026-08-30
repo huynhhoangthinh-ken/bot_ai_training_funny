@@ -456,15 +456,28 @@ class TigerChatEngine {
     return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
   }
 
-  getSystemPrompt() {
-    let prompt = `Bạn là "Hổ AI Master Sales" (Cọp Master), linh vật đại diện thương hiệu Bất Động Sản Đại Chúng Properties dành cho TOÀN BỘ ĐỘI NGŨ CHIẾN BINH SALES & MÔI GIỚI BĐS ĐẠI CHÚNG.
+  getSystemPrompt(extraContext = '') {
+    let prompt = `Bạn là "Hổ AI Master Sales" (Cọp Master), linh vật đại diện thương hiệu Bất Động Sản ĐẠI CHÚNG PROPERTIES dành cho TOÀN BỘ ĐỘI NGŨ CHIẾN BINH SALES & MÔI GIỚI BĐS ĐẠI CHÚNG.
+
+THƯƠNG HIỆU & ĐỊNH VỊ ĐẠI CHÚNG PROPERTIES:
+- Slogan chính thức: "Kết nối thành công — Kiến tạo di sản".
+- Triết lý & Định vị: "Sang trọng kín đáo" (Quiet luxury), định vị ở phân khúc Trung - Cao cấp đến Hạng sang (premium to luxury), đối tác đáng tin cậy cho các quyết định tài sản lớn như Sotheby's, Knight Frank, Savills.
+- Tông giọng: Chuyên nghiệp, đĩnh đạc, tinh tế, giàu cảm xúc sở hữu và giá trị bền vững; tránh từ ngữ rẻ tiền ("giá rẻ", "thanh lý gấp").
+- Nhận diện Logo: Bản đầy đủ (nền sáng/trắng), Bản Chữ Trắng (mặc định cho nền tối/charcoal/navy), Bản Trắng toàn phần (nền ảnh phức tạp/cực tối).
+
 TÍNH CÁCH ĐẶC TRƯNG:
 - Cực kỳ hài hước, dí dỏm, tấu hài duyên dáng, tràn đầy năng lượng thực chiến, thấu hiểu tâm lý nhân viên môi giới và nhà đầu tư BĐS Việt Nam 2026.
 - Xưng là "Cọp" hoặc "Hổ Master", gọi người hỏi là "chiến binh", "anh em", "bro", "chiến thần sales" (TUYỆT ĐỐI KHÔNG gọi là Ken vì đây là bot dùng chung cho toàn bộ anh em sales trong công ty).
 - Luôn truyền lửa, động viên tinh thần, thúc đẩy hành động mạnh mẽ và chia sẻ bí kíp thực chiến. Dùng icon vui nhộn 🐯🔥💰.
-KIẾN THỨC BẤT ĐỘNG SẢN:
-- Nắm rõ chi tiết toàn bộ các dự án Đại Chúng phân phối: Saigon Farm Resort (MDS Living - Điền trang sinh thái sổ đỏ riêng 100% thổ cư), Blanca City Vũng Tàu (Sun Group), The Global City & Bán đảo Sola (Masterise Homes & Foster + Partners), The Rivus Elie Saab (Dinh thự nổi Haute Couture), Urban Green Thủ Đức (Kusto Home), The Marq Quận 1 (Hongkong Land), Gladia...
-- Am hiểu chính sách bán hàng, ân hạn nợ gốc & lãi suất 0%, đòn bẩy tài chính, bí kíp chốt cọc và kỹ năng xử lý từ chối khách khó tính.
+
+KIẾN THỨC TOÀN BỘ DỰ ÁN ĐẠI CHÚNG PHÂN PHỐI:
+- Palm River (Palm City Nam Rạch Chiếc / Hướng Việt Properties / CĐT Nam Rạch Chiếc - CC3): 4 tháp 36 tầng, kính Low-E 2 lớp, bàn giao thiết bị cao cấp Smeg/Bosch, bồn cầu thông minh/vòi sen vàng hồng xước, OCB hỗ trợ vay ân hạn gốc tới 36-60 tháng, thời hạn vay 40 năm.
+- Saigon Farm Resort (MDS Living): Điền trang sinh thái bản sắc Việt đương đại, sổ đỏ riêng từng nền, 100% thổ cư, 40 sản phẩm mở bán đợt này.
+- The Global City & Bán đảo Sola (Masterise Homes & Foster + Partners): Trung tâm biểu tượng mới Thủ Đức.
+- Blanca City Vũng Tàu (Sun Group): Đô thị biển biểu tượng nghỉ dưỡng và thương mại.
+- The Rivus Elie Saab: Dinh thự nổi Haute Couture phiên bản giới hạn ven sông Đồng Nai.
+- Urban Green Thủ Đức (Kusto Home): Căn hộ & Shophouse & Villa phong cách sống xanh Modernist.
+- The Marq Quận 1 (Hongkong Land), Gladia, Gladia Heights, Elyse Island...
 
 QUY TẮC TRÌNH BÀY (BẮT BUỘC):
 - 100% KHÔNG ĐÍNH KÈM THẺ HÌNH ẢNH. Chỉ trả lời bằng văn bản thuần túy và Markdown đẹp mắt.
@@ -481,7 +494,62 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
       prompt += `\nPhong cách hiện tại: Triết Lý Bác Học — Thâm thúy, tĩnh tại, góc nhìn chu kỳ vĩ mô.`;
     }
 
+    if (extraContext) {
+      prompt += `\n\n=== DỮ LIỆU DỰ ÁN NỘI BỘ TRÍCH XUẤT (DÙNG ĐỂ TRẢ LỜI CHÍNH XÁC): ===\n${extraContext}`;
+    }
+
     return prompt;
+  }
+
+  findProjectKnowledge(userPrompt) {
+    if (!window.DAICHUNG_PROJECT_DATABASE || typeof window.DAICHUNG_PROJECT_DATABASE !== 'object') {
+      return '';
+    }
+
+    const query = (userPrompt || '').toLowerCase();
+    let matchedSnippets = [];
+
+    for (const [projId, proj] of Object.entries(window.DAICHUNG_PROJECT_DATABASE)) {
+      if (!proj || !proj.docs || !proj.docs.length) continue;
+
+      let isMatch = false;
+      const projName = (proj.name || '').toLowerCase();
+      if (query.includes(projName) || (proj.keywords && proj.keywords.some(kw => query.includes(kw.toLowerCase())))) {
+        isMatch = true;
+      }
+
+      if (isMatch) {
+        for (const doc of proj.docs) {
+          const docContent = doc.content || '';
+          if (!docContent) continue;
+
+          // If query terms match doc title or content
+          const cleanContent = docContent.replace(/<[^>]*>/g, ' ').substring(0, 1500);
+          matchedSnippets.push(`[${proj.name} - ${doc.title}]:\n${cleanContent}`);
+          if (matchedSnippets.length >= 3) break;
+        }
+      }
+      if (matchedSnippets.length >= 4) break;
+    }
+
+    // General keyword scanning if nothing matched specifically
+    if (matchedSnippets.length === 0) {
+      const keywords = ['palm river', 'đại chúng', 'slogan', 'logo', 'saigon farm', 'urban green', 'rivus', 'global city', 'blanca', 'ocb', 'bàn giao'];
+      for (const kw of keywords) {
+        if (query.includes(kw)) {
+          for (const proj of Object.values(window.DAICHUNG_PROJECT_DATABASE)) {
+            if (proj.keywords && proj.keywords.some(k => k.toLowerCase().includes(kw))) {
+              if (proj.docs && proj.docs[0]) {
+                matchedSnippets.push(`[${proj.name}]:\n${proj.docs[0].content.substring(0, 1200)}`);
+              }
+            }
+          }
+          break;
+        }
+      }
+    }
+
+    return matchedSnippets.join('\n\n---\n\n').substring(0, 3500);
   }
 
   buildValidContents(userPrompt) {
@@ -540,7 +608,8 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
 
   async generateAiReply(userPrompt) {
     this.showTypingIndicator();
-    const systemInstruction = this.getSystemPrompt();
+    const extraContext = this.findProjectKnowledge(userPrompt);
+    const systemInstruction = this.getSystemPrompt(extraContext);
 
     const candidateModels = [
       this.currentModel,
@@ -601,13 +670,19 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
   getSmartFallback(userPrompt) {
     const prompt = (userPrompt || '').toLowerCase();
     if (prompt.includes('bói') || prompt.includes('quẻ') || prompt.includes('may mắn')) {
-      return `🐯 **Quẻ Thần Tài Cọp Master phán:**\n\n* **Cung Tài Bạch:** Đang rực sáng như đèn pha đại lộ Mai Chí Thọ! Hôm nay bước chân phải ra đường, gặp khách nhớ khen nhà đẹp 3 câu rồi mới tung chiêu cọc.\n* **Hướng cát lợi:** Đông Nam - hướng sinh khí dồi dào, gom cọc mỏi tay!\n* **Bảo bối hộ mệnh:** Mở ngay danh mục **Saigon Farm Resort** và **The Global City** gửi khách VIP là lộc lá tự khắc bay vào tài khoản nha anh em! 🐯✨`;
+      return `🐯 **Quẻ Thần Tài Cọp Master phán:**\n\n* **Cung Tài Bạch:** Đang rực sáng như đèn pha đại lộ Mai Chí Thọ! Hôm nay bước chân phải ra đường, gặp khách nhớ khen nhà đẹp 3 câu rồi mới tung chiêu cọc.\n* **Hướng cát lợi:** Đông Nam - hướng sinh khí dồi dào, đón trọn tài lộc sông Rạch Chiếc!\n* **Bảo bối hộ mệnh:** Mở ngay danh mục **Palm River (Nam Rạch Chiếc)**, **Saigon Farm Resort** và **The Global City** gửi khách VIP là lộc lá tự khắc bay vào tài khoản nha anh em! 🐯✨`;
+    }
+    if (prompt.includes('palm river') || prompt.includes('palm city') || prompt.includes('hướng việt')) {
+      return `💎 **Siêu Dự Án Palm River (Nam Rạch Chiếc):**\n\n* **Quy mô & Vị trí:** 4 tháp cao 36 tầng (620 căn hộ), tọa lạc ven sông Giồng Ông Tố, P. Bình Trưng Tây, TP. Thủ Đức, bàn giao Q4/2028.\n* **Bàn giao chuẩn quốc tế:** Mặt ngoài full kính Low-E 2 lớp, thiết bị Smeg/Bosch, sen vòi vàng hồng xước, thang máy 3m/s có Face ID.\n* **Đòn bẩy tài chính OCB:** Hỗ trợ vay tới 100% nhu cầu, ân hạn gốc 36 - 60 tháng, thời hạn vay 40 năm!\n\nAnh em cần Cọp phân tích chi tiết căn 2PN hay 3PN trước nào? 🐯🔥`;
+    }
+    if (prompt.includes('đại chúng') || prompt.includes('slogan') || prompt.includes('thương hiệu')) {
+      return `🐯 **Đại Chúng Properties — "Kết nối thành công — Kiến tạo di sản":**\n\n* **Định vị:** Triết lý "Sang trọng kín đáo" (Quiet luxury), chuyên phân phối các dòng BĐS trung - cao cấp đến hạng sang.\n* **Giá trị cốt lõi:** Kết nối giao dịch đỉnh cao và kiến tạo di sản tài sản truyền đời cho thế hệ sau.\n* **Linh vật Cọp Master:** Luôn đồng hành tiếp lửa cùng toàn thể chiến binh sales Đại Chúng! 🐯💰`;
     }
     if (prompt.includes('năng lượng') || prompt.includes('chốt deal') || prompt.includes('bí quyết') || prompt.includes('vip')) {
       return `🔥 **1 Liều Năng Lượng Đột Phá Từ Cọp Master:**\n\n* **Tâm thế chiến binh:** Khách hàng chê đắt là khách muốn mua! Hãy nhớ: "Không có BĐS đắt, chỉ có giá trị chưa được khai phá hết!"\n* **Bí quyết đối đáp VIP:** Lắng nghe 70%, chốt hạ 30% bằng bài toán dòng tiền và chính sách ân hạn lãi suất 0%.\n* **Hành động ngay:** Bốc máy gọi 3 khách net nhất hôm nay, Cọp đứng sau lưng yểm trợ phong thủy tài lộc cho anh em sales Đại Chúng! 🐯💪`;
     }
     if (prompt.includes('mua gì') || prompt.includes('dự án') || prompt.includes('hot')) {
-      return `💎 **Top Dự Án Kim Cương Đang "Gây Bão" Tại Đại Chúng Properties:**\n\n1. **Saigon Farm Resort (MDS Living):** Điền trang sinh thái sổ đỏ riêng từng nền, 100% thổ cư, đón sóng hạ tầng siêu chuẩn!\n2. **The Global City & Phân khu Sola:** Trung tâm biểu tượng mới Thủ Đức do Foster + Partners thiết kế, tiềm năng tăng giá vượt trội.\n3. **The Rivus (Elie Saab):** Dinh thự nổi phiên bản giới hạn cho giới siêu giàu.\n\nAnh em muốn Cọp phân tích chi tiết dòng tiền hay pháp lý của dự án nào trước? 🐯🚀`;
+      return `💎 **Top Dự Án Kim Cương Đang "Gây Bão" Tại Đại Chúng Properties:**\n\n1. **Palm River (Hướng Việt Properties):** Biểu tượng ven sông Nam Rạch Chiếc, kính Low-E 2 lớp, OCB ân hạn nợ gốc tới 36 - 60 tháng.\n2. **Saigon Farm Resort (MDS Living):** Điền trang sinh thái sổ đỏ riêng 100% thổ cư, 40 sản phẩm giới hạn.\n3. **The Global City & Phân khu Sola:** Trung tâm biểu tượng mới Thủ Đức do Foster + Partners thiết kế.\n4. **The Rivus (Elie Saab):** Dinh thự nổi Haute Couture ven sông Đồng Nai.\n\nAnh em muốn Cọp phân tích chi tiết dòng tiền hay pháp lý của dự án nào trước? 🐯🚀`;
     }
     return `🐯 Dạ Cọp nghe rõ rồi nè anh em! Về **${userPrompt}**, thị trường BĐS 2026 đang vào chu kỳ vàng với lãi suất ưu đãi và hạ tầng bứt phá. Cọp luôn đồng hành cùng anh em sales phân tích cặn kẽ để bách chiến bách thắng mọi deal lớn nhé! 🐯🔥`;
   }
