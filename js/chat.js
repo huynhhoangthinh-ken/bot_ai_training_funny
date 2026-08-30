@@ -551,12 +551,13 @@ class TigerChatApp {
     return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
   }
 
-  getSystemPrompt() {
+  getSystemPrompt(userQuery = '') {
     let prompt = `Bạn là "Hổ AI Master Sales", linh vật đại diện thương hiệu Bất Động Sản Đại Chúng Properties (Đại Chúng).
 TÍNH CÁCH: Hài hước, dí dỏm, tấu hài, thực chiến, thấu hiểu tâm lý nhân viên môi giới BĐS Việt Nam 2026, thường xưng là "Cọp" hoặc "Hổ Master", dùng các icon hổ 🐯 vui vẻ.
 KIẾN THỨC CHUYÊN MÔN:
-- Cực kỳ am hiểu thực tế thị trường BĐS (hiện nay cấm telesale rác theo NĐ 91 -> hướng dẫn chuyển sang làm video TikTok/Reels, Voice Brandname, chạy Ads khách nhu cầu thật, chăm sóc tệp khách cũ).
-- Nắm vững bài toán dòng tiền, hỗ trợ lãi suất 0% ân hạn nợ gốc, xử lý từ chối giá cao, phân tích pháp lý 1/500 và sổ hồng.
+- Cực kỳ am hiểu toàn bộ các dự án Đại Chúng Properties phân phối (Blanca City Vũng Tàu - Sun Group, The Global City & Bán đảo Sola, The Rivus Elie Saab, Urban Green, The MarQ Quận 1, Gladia, Elyse Island, Grand Marina Saigon, v.v.).
+- Nắm vững chi tiết từng chính sách bán hàng (CSBH), quà tặng, tiến độ thanh toán, ngân hàng hỗ trợ ân hạn nợ gốc và lãi suất 0%, bảng giá, layout mặt bằng, tiêu chuẩn bàn giao và điểm nhấn bán hàng (USP).
+- Xử lý từ chối giá cao, pháp lý, kỹ năng chốt sales, tìm kiếm khách hàng thời 4.0.
 - QUY TẮC PHẢN HỒI: Trả lời bằng tiếng Việt tự nhiên, hài hước, súc tích, chia gạch đầu dòng rõ ràng, định dạng HTML thẻ <strong>, <em>, <br>. LUÔN TRẢ LỜI ĐẦY ĐỦ TRỌN VẸN TẤT CẢ CÁC Ý, KHÔNG BAO GIỜ DỪNG DỞ DANG GIỮA CÂU.
 `;
 
@@ -570,8 +571,34 @@ KIẾN THỨC CHUYÊN MÔN:
       prompt += `\nPhong cách hiện tại: Thiền sư giác ngộ bất động sản, thâm thúy, tĩnh tâm nhìn nhận chu kỳ kinh tế.`;
     }
 
+    // Auto-inject matching project from DAICHUNG_PROJECT_DATABASE
+    const qLower = (userQuery || '').toLowerCase();
+    if (window.DAICHUNG_PROJECT_DATABASE) {
+      let matchedProjects = [];
+      for (const key in window.DAICHUNG_PROJECT_DATABASE) {
+        const proj = window.DAICHUNG_PROJECT_DATABASE[key];
+        if (proj.keywords && proj.keywords.some(k => qLower.includes(k))) {
+          matchedProjects.push(proj);
+        }
+      }
+
+      // If user asks general questions or specific project
+      if (matchedProjects.length > 0) {
+        prompt += `\n\n=== DỮ LIỆU DỰ ÁN CHI TIẾT TỪ HỆ THỐNG ĐẠI CHÚNG ===\n`;
+        matchedProjects.forEach(p => {
+          prompt += `\n--- DỰ ÁN: ${p.name} ---\n`;
+          p.docs.slice(0, 6).forEach(d => {
+            prompt += `[Tài liệu: ${d.title}]:\n${d.content.slice(0, 1800)}\n\n`;
+          });
+        });
+      } else {
+        // Provide overview of available projects
+        prompt += `\n\nDANH MỤC DỰ ÁN ĐẠI CHÚNG PHÂN PHỐI: Blanca City Vũng Tàu (Sun Group), The Global City (Masterise), Bán đảo Sola, The Rivus Elie Saab, Urban Green (Kusto Home), The MarQ (Hongkong Land), Gladia, Elyse Island, Grand Marina Saigon. Bạn có đầy đủ dữ liệu khi sales hỏi.`;
+      }
+    }
+
     if (this.knowledgeDocs.length > 0) {
-      prompt += `\n\nDỮ LIỆU DỰ ÁN ĐÃ NẠP:\n` + this.knowledgeDocs.map(d => `[${d.title}]: ${d.content}`).join('\n\n');
+      prompt += `\n\nDỮ LIỆU DỰ ÁN BỔ SUNG KHÁCH NẠP:\n` + this.knowledgeDocs.map(d => `[${d.title}]: ${d.content}`).join('\n\n');
     }
 
     return prompt;
@@ -583,7 +610,7 @@ KIẾN THỨC CHUYÊN MÔN:
   async callDeepSeekAPI(userPrompt) {
     this.showTypingIndicator();
 
-    const systemPrompt = this.getSystemPrompt();
+    const systemPrompt = this.getSystemPrompt(userPrompt);
     const recentHistory = this.conversationHistory.slice(-6);
 
     const messages = [
