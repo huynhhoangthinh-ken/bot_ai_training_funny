@@ -57,6 +57,11 @@
           <span class="badge-count" id="knowledgeCountBadge">0</span>
         </button>
 
+        <!-- Fun Sales EQ Quiz Button -->
+        <button class="btn-ctrl-gold" id="openQuizModalBtn" style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); box-shadow: 0 4px 12px rgba(236, 72, 153, 0.35);" title="Trắc nghiệm đo EQ & Bói tính cách Sales BĐS">
+          <span>🎮 Test EQ Sales</span>
+        </button>
+
         <!-- Sound Toggle -->
         <button class="btn-ctrl-icon" id="soundToggleBtn" title="Bật/Tắt âm thanh">
           🔊
@@ -196,9 +201,10 @@
       <div class="quick-chips-wrapper">
         <span class="chips-label">Gợi ý chém gió & xem hình:</span>
         <div class="chips-scroll" id="quickChipsScroll">
+          <button class="chip-item" style="border-color: #ec4899; color: #db2777;" onclick="window.salesQuiz && window.salesQuiz.openQuiz()">🎮 Test EQ & Bói Tính Cách Sales</button>
+          <button class="chip-item" data-text="Chính sách bán hàng dự án Blanca City Vũng Tàu thế nào?">🏖️ CSBH Blanca City</button>
+          <button class="chip-item" data-text="Bán đảo Sola The Global City có những điểm nổi bật gì?">🌐 Sola The Global City</button>
           <button class="chip-item" data-text="Làm sao để tìm khách hàng BĐS nét trong thời điểm cấm telesale?">🎯 Tìm khách BĐS thời 4.0</button>
-          <button class="chip-item" data-text="Cho tôi xem phối cảnh toàn dự án đi Cọp!">🏙️ Xem phối cảnh dự án</button>
-          <button class="chip-item" data-text="Cọp ơi gửi cho tôi xem sơ đồ mặt bằng căn hộ với!">📐 Xem mặt bằng & layout</button>
           <button class="chip-item" data-text="Khách bảo thị trường đang đóng băng chưa muốn mua thì đối đáp sao?">🥊 Xử lý khách do dự</button>
           <button class="chip-item" data-text="Kể cho tôi nghe 1 câu chuyện cười về nghề BĐS đi Cọp!">🤣 Kể chuyện cười BĐS</button>
           <button class="chip-item" data-text="Bói cho tôi 1 quẻ may mắn chốt cọc tháng này!">🔮 Bói quẻ chốt cọc</button>
@@ -333,13 +339,24 @@
   </div>
 
   <!-- =========================================================================
-       IMAGE LIGHTBOX VIEWER (XEM ẢNH PHÓNG TO)
+       MODAL: TRẮC NGHIỆM ĐO EQ & BÓI TÍNH CÁCH SALES BĐS
        ========================================================================= -->
-  <div class="lightbox-backdrop" id="imageLightbox" onclick="window.tigerChat && window.tigerChat.closeLightbox()">
-    <div class="lightbox-content" onclick="event.stopPropagation()">
-      <button class="lightbox-close-btn" onclick="window.tigerChat && window.tigerChat.closeLightbox()">✕</button>
-      <img id="lightboxImg" src="" alt="Zoomed Image">
-      <div id="lightboxCaption" class="lightbox-caption"></div>
+  <div class="modal-backdrop" id="quizModal">
+    <div class="modal-card" style="max-width: 640px;">
+      <div class="modal-header" style="background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); border-bottom: 1.5px solid #f472b6;">
+        <div class="modal-title">
+          <span style="font-size: 1.6rem;">🎮</span>
+          <div>
+            <h3 style="color: #9d174d;">TRẮC NGHIỆM TÍNH CÁCH & ĐO EQ SALES BĐS</h3>
+            <p>Khám phá bạn là hệ chiến binh nào trong làng chốt deal Đại Chúng!</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="closeQuizModalBtn">✕</button>
+      </div>
+
+      <div class="modal-body" id="quizModalBody">
+        <!-- Content dynamically rendered by js/quiz.js -->
+      </div>
     </div>
   </div>
 
@@ -349,6 +366,7 @@
   <!-- Javascript Modules -->
   <script src="js/data.js"></script>
   <script src="js/project_database.js"></script>
+  <script src="js/quiz.js"></script>
   <script src="js/chat.js"></script>
 </body>
 </html>

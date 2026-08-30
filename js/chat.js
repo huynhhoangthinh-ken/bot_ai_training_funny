@@ -468,6 +468,18 @@ class TigerChatApp {
     this.conversationHistory.push({ role: 'user', content: text });
     this.saveChatHistory();
 
+    const lower = text.toLowerCase();
+    if (lower.includes('test eq') || lower.includes('trắc nghiệm') || lower.includes('bói tính cách') || lower.includes('kiểm tra eq')) {
+      setTimeout(() => {
+        this.renderBotMessage(`<strong>🎮 ĐÃ SẴN SÀNG GIẢI MÃ TÍNH CÁCH SALES BĐS CỦA BẠN! 🐯✨</strong><br><br>
+        Xem bạn là <strong>Cọp Chúa Sát Thủ Chốt Cọc</strong>, <strong>Phù Thủy Khách VIP</strong> hay <strong>Idol Content Triệu View</strong> nhé!<br><br>
+        <button class="btn-ctrl-gold" style="padding: 10px 22px; font-size: 0.92rem; background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); margin-top: 6px;" onclick="window.salesQuiz && window.salesQuiz.openQuiz()">
+          🚀 BẮT ĐẦU TEST EQ NGAY (5 CÂU HỎI)
+        </button>`);
+      }, 300);
+      return;
+    }
+
     if (this.apiKey) {
       if (this.aiProvider === 'deepseek') {
         this.callDeepSeekAPI(text);
