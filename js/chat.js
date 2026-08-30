@@ -14,6 +14,7 @@ class TigerChatApp {
     this.mascotFace = document.getElementById('mainMascotFace');
     this.soundToggleBtn = document.getElementById('soundToggleBtn');
     this.clearChatBtn = document.getElementById('clearChatBtn');
+    this.aiModeSelect = document.getElementById('aiModeSelect');
 
     // Brand Elements
     this.brandLogoWrap = document.getElementById('brandLogoWrap');
@@ -259,6 +260,28 @@ class TigerChatApp {
         this.personality = e.target.value;
         this.updateMascotMood();
         this.showToast(`Đã chuyển tính cách sang: ${e.target.options[e.target.selectedIndex].text}`);
+        this.playAudio('click');
+      });
+    }
+
+    // AI Mode Switcher (Phản hồi nhanh vs Suy luận sâu)
+    if (this.aiModeSelect) {
+      this.aiModeSelect.addEventListener('change', (e) => {
+        const mode = e.target.value;
+        this.currentModel = mode;
+        localStorage.setItem('tiger_ai_model', mode);
+
+        if (mode === 'deepseek-reasoner') {
+          this.showToast('🧠 Đã bật Chế độ Suy Luận Sâu (Phân tích chuyên sâu sắc bén)');
+          if (this.bubbleSpeech) {
+            this.bubbleSpeech.textContent = "Chế độ suy luận sâu đã kích hoạt! Cọp sẽ phân tích logic bài bản nhất cho bạn! 🧠🐯";
+          }
+        } else {
+          this.showToast('⚡ Đã bật Chế độ Phản Hồi Nhanh (Trả lời tức thì)');
+          if (this.bubbleSpeech) {
+            this.bubbleSpeech.textContent = "Chế độ phản hồi nhanh đã kích hoạt! Hỏi là Cọp bắn câu trả lời liền tay! ⚡🐯";
+          }
+        }
         this.playAudio('click');
       });
     }
@@ -1082,8 +1105,8 @@ KIẾN THỨC CHUYÊN MÔN:
     }
 
     this.renderBotMessage(`Hú le anh em <strong>ĐẠI CHÚNG PROPERTIES</strong>! 🐯 Ta là <strong>HỔ AI MASTER SALES</strong> đâyyy!<br><br>
-    Được trang bị trí tuệ từ <strong>Google Gemini & DeepSeek AI</strong>, ta sẵn sàng giải đáp mọi thắc mắc dự án, chiến lược săn khách 4.0, luyện đối đáp chốt sale hay chém gió giải tỏa stress cùng bạn! 😎<br>
-    👉 Bạn có thể chuyển đổi linh hoạt giữa <strong>DeepSeek</strong> hoặc <strong>Gemini</strong> ở nút Cài Đặt trên góc phải nhé!`);
+    Ta sẵn sàng giải đáp mọi thắc mắc dự án, phân tích thị trường, luyện đối đáp chốt sale, bói quẻ may mắn hay chém gió giải tỏa stress cùng bạn! 😎<br>
+    👉 Bạn có thể chọn <strong>⚡ Phản Hồi Nhanh</strong> hoặc <strong>🧠 Suy Luận Sâu</strong> ở thanh menu phía trên nhé!`);
   }
 
   /* --------------------------------------------------------------------------

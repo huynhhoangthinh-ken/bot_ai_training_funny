@@ -31,14 +31,23 @@
 
       <!-- Quick Action Controls -->
       <div class="header-controls">
+        <!-- AI Mode Selector: Nhanh vs Suy Luận Sâu -->
+        <div class="personality-selector-wrap">
+          <label for="aiModeSelect">Chế độ AI:</label>
+          <select id="aiModeSelect" class="personality-dropdown">
+            <option value="deepseek-chat" selected>⚡ Phản Hồi Nhanh</option>
+            <option value="deepseek-reasoner">🧠 Suy Luận Sâu</option>
+          </select>
+        </div>
+
         <!-- Personality Mood Selector -->
         <div class="personality-selector-wrap">
           <label for="personalitySelect">Tính cách:</label>
           <select id="personalitySelect" class="personality-dropdown">
-            <option value="hai_huoc" selected>🐯 Hổ Hài Hước / Cà Khịa</option>
-            <option value="master_sales">👑 Hổ Sát Thủ Chốt Deal</option>
-            <option value="cute_dongvien">✨ Hổ Cute / Động Viên</option>
-            <option value="triet_ly">🧘 Hổ Triết Lý / Bác Học</option>
+            <option value="hai_huoc" selected>🐯 Hổ Hài Hước</option>
+            <option value="master_sales">👑 Sát Thủ Chốt Deal</option>
+            <option value="cute_dongvien">✨ Cute Động Viên</option>
+            <option value="triet_ly">🧘 Triết Lý Bác Học</option>
           </select>
         </div>
 
@@ -56,11 +65,6 @@
         <!-- Clear Chat -->
         <button class="btn-ctrl-icon" id="clearChatBtn" title="Xóa lịch sử chat để bắt đầu lại">
           🗑️
-        </button>
-
-        <!-- Subtle Settings Button -->
-        <button class="btn-ctrl-icon" id="openApiKeyModalBtn" title="Cài đặt AI Engine">
-          ⚙️
         </button>
       </div>
     </div>
