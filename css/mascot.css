@@ -1,0 +1,83 @@
+/* ==========================================================================
+   TIGER MASCOT (CON CỌP HÀI HƯỚC) - VECTOR SVG ANIMATIONS
+   ========================================================================== */
+
+/* Ear animations */
+.tiger-ear-left {
+  transform-origin: 30% 25%;
+  animation: twitchLeftEar 4s infinite ease-in-out;
+}
+
+.tiger-ear-right {
+  transform-origin: 70% 25%;
+  animation: twitchRightEar 4s infinite ease-in-out;
+}
+
+@keyframes twitchLeftEar {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  92% { transform: rotate(-14deg); }
+  96% { transform: rotate(5deg); }
+}
+
+@keyframes twitchRightEar {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  91% { transform: rotate(14deg); }
+  95% { transform: rotate(-5deg); }
+}
+
+/* Eye Blinking */
+.tiger-eyelids {
+  transform-origin: 50% 45%;
+  animation: blinkEyes 4s infinite ease-in-out;
+}
+
+@keyframes blinkEyes {
+  0%, 93%, 100% {
+    transform: scaleY(1);
+  }
+  96.5% {
+    transform: scaleY(0.08);
+  }
+}
+
+/* Pupils Moving Playfully */
+.tiger-pupil-group {
+  animation: playfulPupils 5.5s infinite ease-in-out;
+}
+
+@keyframes playfulPupils {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(3px, -2px); }
+  50% { transform: translate(-3px, 1px); }
+  75% { transform: translate(0, 3px); }
+}
+
+/* Whiskers Wiggle */
+.tiger-whiskers {
+  animation: wiggleWhiskers 3s infinite ease-in-out;
+}
+
+@keyframes wiggleWhiskers {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+/* Golden Crown Shimmer */
+.tiger-crown {
+  animation: crownGlow 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes crownGlow {
+  0% { filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.4)); }
+  100% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9)); }
+}
+
+/* Floating animation on Avatar */
+.mascot-avatar-large {
+  animation: floatAvatar 3.5s infinite ease-in-out;
+}
+
+@keyframes floatAvatar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
