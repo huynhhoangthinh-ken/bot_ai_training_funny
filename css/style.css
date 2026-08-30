@@ -1425,7 +1425,7 @@ body {
 }
 
 /* ==========================================================================
-   COMPREHENSIVE MOBILE OPTIMIZATION
+   COMPREHENSIVE MOBILE OPTIMIZATION (CHAT CHIẾM 80% MÀN HÌNH)
    ========================================================================== */
 @media (max-width: 768px) {
   html, body {
@@ -1437,19 +1437,26 @@ body {
   .app-container {
     height: 100dvh;
     max-height: 100dvh;
+    display: flex;
+    flex-direction: column;
   }
 
+  /* Ultra-Compact Header */
   .app-header {
-    padding: 10px 14px;
-    gap: 8px;
+    padding: 6px 12px;
+    height: 48px;
+    min-height: 48px;
+    gap: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   }
 
   .brand-logo-img {
-    height: 34px;
+    height: 28px;
   }
 
   .brand-name-wrap h1 {
-    font-size: 0.98rem;
+    font-size: 0.88rem;
+    line-height: 1.1;
   }
 
   .brand-tagline {
@@ -1457,16 +1464,30 @@ body {
   }
 
   .header-actions-group {
-    gap: 6px;
+    gap: 4px;
+  }
+
+  .personality-selector-wrap {
+    display: none;
   }
 
   .ai-mode-selector-wrap {
-    padding: 3px 6px;
+    padding: 2px 4px;
+    border-radius: 12px;
+  }
+
+  .ai-mode-selector-wrap label {
+    display: none;
   }
 
   .ai-mode-selector-wrap select {
-    font-size: 0.76rem;
-    padding: 3px 6px;
+    font-size: 0.72rem;
+    padding: 2px 4px;
+  }
+
+  #openKnowledgeModalBtn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
   }
 
   #openKnowledgeModalBtn span:not(.badge-count) {
@@ -1475,68 +1496,119 @@ body {
 
   #openKnowledgeModalBtn::before {
     content: "📚";
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 
-  #openKnowledgeModalBtn {
-    padding: 6px 10px;
+  #openQuizModalBtn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
   }
 
+  #soundToggleBtn {
+    display: none;
+  }
+
+  #clearChatBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  /* HIDE MASCOT HERO ON MOBILE TO EXPAND CHAT 80% */
   .mascot-hero-stage {
-    padding: 10px 14px;
+    display: none !important;
   }
 
-  .mascot-bubble-talk {
-    font-size: 0.82rem;
-    padding: 8px 12px;
-  }
-
-  .mascot-mood-tag {
-    font-size: 0.7rem;
-    margin-top: 4px;
+  /* MAIN CHAT CONTAINER EXPANDS TO FILL SCREEN */
+  .main-chat-layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: calc(100dvh - 48px);
   }
 
   .chat-messages-container {
-    padding: 12px 14px;
-    gap: 14px;
+    flex: 1;
+    padding: 10px 12px;
+    gap: 12px;
+    overflow-y: auto;
   }
 
   .chat-msg .msg-bubble {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     line-height: 1.6;
-    padding: 11px 14px;
-  }
-
-  .quick-chips-wrapper {
-    padding: 8px 14px;
-  }
-
-  .bottom-quiz-strip {
-    padding: 8px 14px;
-  }
-
-  .strip-text {
-    font-size: 0.78rem;
-  }
-
-  .chat-input-wrapper {
     padding: 10px 14px;
-    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    max-width: 90%;
+  }
+
+  .chat-msg .msg-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 1.1rem;
+  }
+
+  /* Compact Chips Bar */
+  .quick-chips-wrapper {
+    padding: 6px 12px;
+    background: #f8fafc;
+    gap: 6px;
+  }
+
+  .chips-label {
+    display: none;
+  }
+
+  .chip-item {
+    padding: 4px 10px;
+    font-size: 0.76rem;
+    border-radius: 14px;
+  }
+
+  /* Hide large bottom banner on mobile to save vertical space */
+  .bottom-quiz-strip {
+    display: none !important;
+  }
+
+  /* Compact Input Bar */
+  .chat-input-wrapper {
+    padding: 8px 12px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    gap: 6px;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
   }
 
   .chat-textarea {
-    font-size: 0.92rem;
-    padding: 10px 14px;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    min-height: 38px;
+    border-radius: 20px;
   }
 
+  .chat-voice-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .chat-send-action-btn {
+    padding: 0 14px;
+    height: 38px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+  }
+
+  /* Modal Mobile */
   .modal-backdrop {
-    padding: 10px;
+    padding: 8px;
     align-items: flex-end;
   }
 
   .modal-card {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    max-height: 85vh;
+    max-height: 90vh;
+    padding: 0;
   }
 }
