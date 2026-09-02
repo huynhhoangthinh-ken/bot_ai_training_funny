@@ -346,13 +346,15 @@ class TigerChatEngine {
           <div class="msg-avatar">🐯</div>
           <div class="msg-body">
             <div class="msg-bubble">
-              <strong>🔥 GÀO THÉT NĂNG LƯỢNG CÙNG HỔ MASTER ĐẠI CHÚNG! 🐯💰</strong><br><br>
-              Chào toàn thể anh em <strong>Chiến Binh Sales Đại Chúng Properties</strong>! Cọp Master đã online — sẵn sàng làm trợ lý đắc lực kiêm thần hộ mệnh chốt deal cùng anh em!<br><br>
-              Hôm nay anh em muốn Cọp trợ lực điều gì nào?<br>
-              🔮 <strong>Bói quẻ phong thủy & tài lộc</strong> chốt cọc tháng này.<br>
-              🔥 <strong>Bơm 1000% năng lượng & bí quyết đối đáp khách VIP</strong> khó tính.<br>
-              💎 <strong>Săn giỏ hàng & tử huyệt dự án hot</strong> (Saigon Farm Resort, The Global City, Blanca City, The Rivus...).<br><br>
-              Cứ bấm nhanh các nút bên dưới hoặc gõ trực tiếp câu hỏi cho Cọp nhé! 🐯🚀
+              <p><strong>🔥 GÀO THÉT NĂNG LƯỢNG CÙNG HỔ MASTER ĐẠI CHÚNG! 🐯💰</strong></p>
+              <p>Chào toàn thể anh em <strong>Chiến Binh Sales Đại Chúng Properties</strong>! Cọp Master đã online — sẵn sàng làm trợ lý đắc lực kiêm thần hộ mệnh chốt deal cùng anh em!</p>
+              <p>Hôm nay anh em muốn Cọp trợ lực điều gì nào?</p>
+              <ul>
+                <li>🔮 <strong>Bói quẻ phong thủy & tài lộc:</strong> Hướng xuất hành chốt cọc tháng này.</li>
+                <li>🔥 <strong>Bơm 1000% năng lượng & bí quyết đối đáp:</strong> Xử lý từ chối với khách VIP khó tính.</li>
+                <li>💎 <strong>Săn giỏ hàng & tử huyệt dự án hot:</strong> Gladia by the Waters, Palm River, Saigon Farm Resort, The Global City, Blanca City, The Rivus...</li>
+              </ul>
+              <p>Cứ bấm nhanh các nút bên dưới hoặc gõ trực tiếp câu hỏi cho Cọp nhé! 🐯🚀</p>
             </div>
             <div class="msg-footer-bar">
               <span class="msg-time">Hổ Master</span>
@@ -471,18 +473,33 @@ TÍNH CÁCH ĐẶC TRƯNG:
 - Luôn truyền lửa, động viên tinh thần, thúc đẩy hành động mạnh mẽ và chia sẻ bí kíp thực chiến. Dùng icon vui nhộn 🐯🔥💰.
 
 KIẾN THỨC TOÀN BỘ DỰ ÁN ĐẠI CHÚNG PHÂN PHỐI:
+- Gladia / Gladia by the Waters & Gladia Heights: Dự án hạng sang ven nước đẳng cấp Quiet Luxury tại khu Đông, vị trí chiến lược đón đầu hạ tầng (nút giao An Phú, Mai Chí Thọ, Võ Chí Công, Vành đai 2, Metro số 6, cao tốc Long Thành - Dầu Giây mở rộng 8 làn, Sân bay quốc tế Long Thành).
 - Palm River (Palm City Nam Rạch Chiếc / Hướng Việt Properties / CĐT Nam Rạch Chiếc - CC3): 4 tháp 36 tầng, kính Low-E 2 lớp, bàn giao thiết bị cao cấp Smeg/Bosch, bồn cầu thông minh/vòi sen vàng hồng xước, OCB hỗ trợ vay ân hạn gốc tới 36-60 tháng, thời hạn vay 40 năm.
 - Saigon Farm Resort (MDS Living): Điền trang sinh thái bản sắc Việt đương đại, sổ đỏ riêng từng nền, 100% thổ cư, 40 sản phẩm mở bán đợt này.
 - The Global City & Bán đảo Sola (Masterise Homes & Foster + Partners): Trung tâm biểu tượng mới Thủ Đức.
 - Blanca City Vũng Tàu (Sun Group): Đô thị biển biểu tượng nghỉ dưỡng và thương mại.
 - The Rivus Elie Saab: Dinh thự nổi Haute Couture phiên bản giới hạn ven sông Đồng Nai.
 - Urban Green Thủ Đức (Kusto Home): Căn hộ & Shophouse & Villa phong cách sống xanh Modernist.
-- The Marq Quận 1 (Hongkong Land), Gladia, Gladia Heights, Elyse Island...
+- The Marq Quận 1 (Hongkong Land), Elyse Island...
 
-QUY TẮC TRÌNH BÀY (BẮT BUỘC):
-- 100% KHÔNG ĐÍNH KÈM THẺ HÌNH ẢNH. Chỉ trả lời bằng văn bản thuần túy và Markdown đẹp mắt.
-- Chia nội dung thành 2-3 đoạn ngắn dễ đọc, sử dụng gạch đầu dòng rõ ràng.
-- Giữ phong cách chuyên nghiệp kết hợp tấu hài thực chiến cực đỉnh.`;
+NGUYÊN TẮC CHỐNG ẢO TƯỞNG & BẢO TOÀN DỮ LIỆU THỰC CHIẾN (BẮT BUỘC - RẤT QUAN TRỌNG):
+1. TUYỆT ĐỐI KHÔNG TỰ BỊA RA CHÍNH SÁCH BÁN HÀNG, CHIẾT KHẤU, ƯU ĐÃI RIÊNG, PHÍ QUẢN LÝ HOẶC CHƯƠNG TRÌNH KHUYẾN MÃI KHÔNG CÓ TRONG TÀI LIỆU CHÍNH THỨC.
+2. CÁC DỰ ÁN ĐỘC LẬP HOÀN TOÀN: Mỗi dự án (Saigon Farm Resort của MDS Living, Palm River của Hướng Việt Properties, The Global City của Masterise Homes...) có Chủ đầu tư, pháp lý và chính sách bán hàng RIÊNG BIỆT. TUYỆT ĐỐI KHÔNG tự bịa ra chính sách "ưu đãi chéo" (ví dụ: bịa rằng khách từng mua Palm River hoặc The Global City sẽ được cộng thêm chiết khấu 1-2% hay miễn phí quản lý 2 năm khi mua Saigon Farm Resort - ĐÂY LÀ ĐIỀU SAI HOÀN TOÀN VÀ BỊ CẤM).
+3. KHÔNG CÓ TRONG TÀI LIỆU = NÓI RÕ LÀ CHƯA CÓ: Nếu người dùng hỏi chính sách hoặc ưu đãi không có trong dữ liệu, Cọp PHẢI khẳng định rõ ràng là "Chủ đầu tư chưa ban hành chính sách này" hoặc "Hiện tại dự án chưa có ưu đãi này, cần xác nhận lại với Giám đốc dự án", TUYỆT ĐỐI KHÔNG ĐOÁN MÒ HAY TỰ SÁNG TÁO.
+4. BÁM SÁT DỮ LIỆU ĐƯỢC CUNG CẤP: Chỉ tư vấn đúng các ưu đãi thực tế của dự án (ví dụ với Saigon Farm Resort: chỉ có chiết khấu TT nhanh 70% là 6%, hỗ trợ xây dựng 800 triệu cho khách hoàn thiện trước Q4/2027, thang tăng giá niêm yết CĐT +30.9% sau 12 tháng, sổ đỏ thổ cư sang tên ngay).
+
+QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ CÂU TRẢ LỜI CÓ LỚP LANG, THOÁNG ĐÃNG):
+1. BỐ CỤC LỚP LANG 3 - 4 PHẦN TÁCH BẠCH:
+   - **Phần 1 - Mở đầu:** 1-2 câu ngắn, dí dỏm, dẫn nhập trực tiếp vào dự án/chủ đề.
+   - **Phần 2 - Các điểm nhấn then chốt:** Sử dụng danh sách gạch đầu dòng rõ ràng.
+     Mỗi ý PHẢI bắt đầu bằng: \`- **Tên điểm nhấn:** Nội dung cô đọng (tối đa 2-3 câu ngắn, nêu bật lợi thế đắt giá nhất).\`
+   - **Phần 3 - Mẹo chốt sale cho bro:** Tách thành 1 đoạn/mục riêng biệt rõ ràng với tiêu đề \`💡 **Mẹo chốt sale cho bro:**\` kèm câu thoại mẫu gợi ý cho sales tư vấn khách (dựa trên USP thật, không bịa ưu đãi giả).
+   - **Phần 4 - Lời kết:** 1 câu ngắn tiếp lửa năng lượng, kêu gọi hành động 🐯🔥.
+
+2. QUY TẮC DÃN DÒNG & KHOẢNG CÁCH:
+   - GIỮA MỖI ĐOẠN VĂN VÀ GIỮA CÁC Ý GẠCH ĐẦU DÒNG BẮT BUỘC PHẢI CÓ 1 DÒNG TRỐNG (ngắt 2 lần xuống dòng \\n\\n).
+   - Tuyệt đối không viết thành một cục văn bản dày đặc san sát chữ khiến người đọc bị ngợp.
+   - 100% KHÔNG ĐÍNH KÈM THẺ HÌNH ẢNH HTML. Chỉ dùng định dạng Markdown chuẩn đẹp mắt.`;
 
     if (this.personality === 'hai_huoc') {
       prompt += `\nPhong cách hiện tại: Hổ Hài Hước — Cực kỳ dí dỏm, tấu hài, giải tỏa căng thẳng cho sales.`;
@@ -523,13 +540,13 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
           const docContent = doc.content || '';
           if (!docContent) continue;
 
-          // If query terms match doc title or content
-          const cleanContent = docContent.replace(/<[^>]*>/g, ' ').substring(0, 1500);
+          // Provide up to 5000 chars per doc to retain full policy & legal sections
+          const cleanContent = docContent.replace(/<[^>]*>/g, ' ').substring(0, 6000);
           matchedSnippets.push(`[${proj.name} - ${doc.title}]:\n${cleanContent}`);
-          if (matchedSnippets.length >= 3) break;
+          if (matchedSnippets.length >= 2) break;
         }
       }
-      if (matchedSnippets.length >= 4) break;
+      if (matchedSnippets.length >= 3) break;
     }
 
     // General keyword scanning if nothing matched specifically
@@ -540,7 +557,7 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
           for (const proj of Object.values(window.DAICHUNG_PROJECT_DATABASE)) {
             if (proj.keywords && proj.keywords.some(k => k.toLowerCase().includes(kw))) {
               if (proj.docs && proj.docs[0]) {
-                matchedSnippets.push(`[${proj.name}]:\n${proj.docs[0].content.substring(0, 1200)}`);
+                matchedSnippets.push(`[${proj.name}]:\n${proj.docs[0].content.substring(0, 3000)}`);
               }
             }
           }
@@ -549,7 +566,7 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
       }
     }
 
-    return matchedSnippets.join('\n\n---\n\n').substring(0, 3500);
+    return matchedSnippets.join('\n\n---\n\n').substring(0, 8500);
   }
 
   buildValidContents(userPrompt) {
@@ -634,7 +651,7 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
           body: JSON.stringify({
             contents: contents,
             systemInstruction: { parts: [{ text: systemInstruction }] },
-            generationConfig: { temperature: 0.85, maxOutputTokens: 1200 }
+            generationConfig: { temperature: 0.5, maxOutputTokens: 1200 }
           })
         }, 6000);
 
@@ -675,6 +692,9 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
     if (prompt.includes('palm river') || prompt.includes('palm city') || prompt.includes('hướng việt')) {
       return `💎 **Siêu Dự Án Palm River (Nam Rạch Chiếc):**\n\n* **Quy mô & Vị trí:** 4 tháp cao 36 tầng (620 căn hộ), tọa lạc ven sông Giồng Ông Tố, P. Bình Trưng Tây, TP. Thủ Đức, bàn giao Q4/2028.\n* **Bàn giao chuẩn quốc tế:** Mặt ngoài full kính Low-E 2 lớp, thiết bị Smeg/Bosch, sen vòi vàng hồng xước, thang máy 3m/s có Face ID.\n* **Đòn bẩy tài chính OCB:** Hỗ trợ vay tới 100% nhu cầu, ân hạn gốc 36 - 60 tháng, thời hạn vay 40 năm!\n\nAnh em cần Cọp phân tích chi tiết căn 2PN hay 3PN trước nào? 🐯🔥`;
     }
+    if (prompt.includes('saigon farm') || prompt.includes('sfr') || prompt.includes('điền trang')) {
+      return `💎 **Saigon Farm Resort (MDS Living) — Điền Trang Bản Sắc Việt Đương Đại:**\n\n* **Pháp lý cứng nhất:** Sổ đỏ riêng từng nền, 100% thổ cư, công chứng sang tên ngay!\n* **Quy mô độc bản:** Chỉ 40 sản phẩm mở bán đợt này (diện tích 808 – 1.322 m²), không gian khép kín 39 người hàng xóm tinh hoa.\n* **Chính sách & Ưu đãi chuẩn:** Hỗ trợ xây dựng 800 triệu (hoàn thiện trước Q4/2027), chiết khấu thanh toán nhanh 70% là 6%, lộ trình tăng giá niêm yết CĐT +30.9% sau 12 tháng.\n\n💡 **Mẹo chốt sale:** Đưa pháp lý sổ đỏ lên đầu buổi tư vấn và khai thác nỗi sợ "con cái mất gốc văn hóa" để chạm đúng cảm xúc khách VIP nhé bro! 🐯🔥`;
+    }
     if (prompt.includes('đại chúng') || prompt.includes('slogan') || prompt.includes('thương hiệu')) {
       return `🐯 **Đại Chúng Properties — "Kết nối thành công — Kiến tạo di sản":**\n\n* **Định vị:** Triết lý "Sang trọng kín đáo" (Quiet luxury), chuyên phân phối các dòng BĐS trung - cao cấp đến hạng sang.\n* **Giá trị cốt lõi:** Kết nối giao dịch đỉnh cao và kiến tạo di sản tài sản truyền đời cho thế hệ sau.\n* **Linh vật Cọp Master:** Luôn đồng hành tiếp lửa cùng toàn thể chiến binh sales Đại Chúng! 🐯💰`;
     }
@@ -689,14 +709,113 @@ QUY TẮC TRÌNH BÀY (BẮT BUỘC):
 
   formatMarkdownToHtml(text) {
     if (!text) return '';
-    let formatted = text.replace(/\r\n/g, '\n');
-    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    formatted = formatted.replace(/^\s*[-•]\s+(.*)$/gm, '<li>$1</li>');
-    formatted = formatted.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-    formatted = formatted.replace(/\n\n+/g, '</p><p>');
-    formatted = formatted.replace(/\n/g, '<br>');
-    return `<p>${formatted}</p>`;
+    let raw = text.trim().replace(/\r\n/g, '\n');
+
+    // Split into blocks by double newlines
+    const blocks = raw.split(/\n{2,}/);
+    const htmlBlocks = [];
+
+    for (let block of blocks) {
+      block = block.trim();
+      if (!block) continue;
+
+      // Check if heading
+      if (/^###\s+(.+)$/m.test(block)) {
+        block = block.replace(/^###\s+(.+)$/gm, '<h4>$1</h4>');
+        htmlBlocks.push(this.inlineMarkdown(block));
+        continue;
+      }
+      if (/^##\s+(.+)$/m.test(block)) {
+        block = block.replace(/^##\s+(.+)$/gm, '<h3>$1</h3>');
+        htmlBlocks.push(this.inlineMarkdown(block));
+        continue;
+      }
+
+      // Check if blockquote
+      if (block.startsWith('>')) {
+        const quoteContent = block.replace(/^>\s?/gm, '');
+        htmlBlocks.push(`<blockquote>${this.inlineMarkdown(quoteContent).replace(/\n/g, '<br>')}</blockquote>`);
+        continue;
+      }
+
+      const lines = block.split('\n');
+      const isPureBulletList = lines.length > 0 && lines.every(line => /^\s*[-*•]\s+/.test(line));
+      const isPureNumberedList = lines.length > 0 && lines.every(line => /^\s*\d+\.\s+/.test(line));
+
+      if (isPureBulletList) {
+        const listItems = lines.map(line => {
+          const content = line.replace(/^\s*[-*•]\s+/, '');
+          return `<li>${this.inlineMarkdown(content)}</li>`;
+        }).join('');
+        htmlBlocks.push(`<ul>${listItems}</ul>`);
+        continue;
+      } else if (isPureNumberedList) {
+        const listItems = lines.map(line => {
+          const content = line.replace(/^\s*\d+\.\s+/, '');
+          return `<li>${this.inlineMarkdown(content)}</li>`;
+        }).join('');
+        htmlBlocks.push(`<ol>${listItems}</ol>`);
+        continue;
+      }
+
+      // Check if block contains list items mixed with normal text
+      if (lines.some(l => /^\s*[-*•]\s+/.test(l) || /^\s*\d+\.\s+/.test(l))) {
+        let insideList = false;
+        let listType = 'ul';
+        let subHtml = [];
+
+        for (const line of lines) {
+          if (/^\s*[-*•]\s+(.*)$/.test(line)) {
+            if (!insideList || listType !== 'ul') {
+              if (insideList) subHtml.push(`</${listType}>`);
+              subHtml.push('<ul>');
+              insideList = true;
+              listType = 'ul';
+            }
+            const match = line.match(/^\s*[-*•]\s+(.*)$/);
+            subHtml.push(`<li>${this.inlineMarkdown(match[1])}</li>`);
+          } else if (/^\s*\d+\.\s+(.*)$/.test(line)) {
+            if (!insideList || listType !== 'ol') {
+              if (insideList) subHtml.push(`</${listType}>`);
+              subHtml.push('<ol>');
+              insideList = true;
+              listType = 'ol';
+            }
+            const match = line.match(/^\s*\d+\.\s+(.*)$/);
+            subHtml.push(`<li>${this.inlineMarkdown(match[1])}</li>`);
+          } else {
+            if (insideList) {
+              subHtml.push(`</${listType}>`);
+              insideList = false;
+            }
+            if (line.trim()) {
+              subHtml.push(`<p>${this.inlineMarkdown(line)}</p>`);
+            }
+          }
+        }
+        if (insideList) subHtml.push(`</${listType}>`);
+        htmlBlocks.push(subHtml.join(''));
+        continue;
+      }
+
+      // Regular paragraph
+      const formattedPara = this.inlineMarkdown(block).replace(/\n/g, '<br>');
+      htmlBlocks.push(`<p>${formattedPara}</p>`);
+    }
+
+    return htmlBlocks.join('');
+  }
+
+  inlineMarkdown(text) {
+    if (!text) return '';
+    let res = text;
+    // Bold: **text**
+    res = res.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Italic: *text* (when not part of **)
+    res = res.replace(/(^|[^*])\*([^*]+)\*([^*]|$)/g, '$1<em>$2</em>$3');
+    // Code inline: `code`
+    res = res.replace(/`([^`]+)`/g, '<code>$1</code>');
+    return res;
   }
 
   cleanTextForSpeech(raw) {
