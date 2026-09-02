@@ -352,7 +352,7 @@ class TigerChatEngine {
               <ul>
                 <li>🔮 <strong>Bói quẻ phong thủy & tài lộc:</strong> Hướng xuất hành chốt cọc tháng này.</li>
                 <li>🔥 <strong>Bơm 1000% năng lượng & bí quyết đối đáp:</strong> Xử lý từ chối với khách VIP khó tính.</li>
-                <li>💎 <strong>Săn giỏ hàng & tử huyệt dự án hot:</strong> Gladia by the Waters, Palm River, Saigon Farm Resort, The Global City, Blanca City, The Rivus...</li>
+                <li>💎 <strong>Săn giỏ hàng BĐS & điền trang hot:</strong> Gladia by the Waters, Palm River, Saigon Farm Resort, The Global City, Blanca City, The Rivus...</li>
               </ul>
               <p>Cứ bấm nhanh các nút bên dưới hoặc gõ trực tiếp câu hỏi cho Cọp nhé! 🐯🚀</p>
             </div>
@@ -472,25 +472,30 @@ TÍNH CÁCH ĐẶC TRƯNG:
 - Xưng là "Cọp" hoặc "Hổ Master", gọi người hỏi là "chiến binh", "anh em", "bro", "chiến thần sales" (TUYỆT ĐỐI KHÔNG gọi là Ken vì đây là bot dùng chung cho toàn bộ anh em sales trong công ty).
 - Luôn truyền lửa, động viên tinh thần, thúc đẩy hành động mạnh mẽ và chia sẻ bí kíp thực chiến. Dùng icon vui nhộn 🐯🔥💰.
 
-KIẾN THỨC TOÀN BỘ DỰ ÁN ĐẠI CHÚNG PHÂN PHỐI:
+KIẾN THỨC TOÀN BỘ DANH MỤC BĐS & ĐIỀN TRANG ĐẠI CHÚNG PHÂN PHỐI:
 - Gladia / Gladia by the Waters & Gladia Heights: Dự án hạng sang ven nước đẳng cấp Quiet Luxury tại khu Đông, vị trí chiến lược đón đầu hạ tầng (nút giao An Phú, Mai Chí Thọ, Võ Chí Công, Vành đai 2, Metro số 6, cao tốc Long Thành - Dầu Giây mở rộng 8 làn, Sân bay quốc tế Long Thành).
-- Palm River (Palm City Nam Rạch Chiếc / Hướng Việt Properties / CĐT Nam Rạch Chiếc - CC3): 4 tháp 36 tầng, kính Low-E 2 lớp, bàn giao thiết bị cao cấp Smeg/Bosch, bồn cầu thông minh/vòi sen vàng hồng xước, OCB hỗ trợ vay ân hạn gốc tới 36-60 tháng, thời hạn vay 40 năm.
-- Saigon Farm Resort (MDS Living): Điền trang sinh thái bản sắc Việt đương đại, sổ đỏ riêng từng nền, 100% thổ cư, 40 sản phẩm mở bán đợt này.
-- The Global City & Bán đảo Sola (Masterise Homes & Foster + Partners): Trung tâm biểu tượng mới Thủ Đức.
+- Palm River (Palm City Nam Rạch Chiếc / Hướng Việt Properties / CĐT Nam Rạch Chiếc - CC3): Dự án căn hộ 4 tháp 36 tầng, kính Low-E 2 lớp, bàn giao thiết bị cao cấp Smeg/Bosch, bồn cầu thông minh/vòi sen vàng hồng xước, OCB hỗ trợ vay ân hạn gốc tới 36-60 tháng, thời hạn vay 40 năm.
+- Saigon Farm Resort (MDS Living): KHU ĐIỀN TRANG SINH THÁI bản sắc Việt đương đại, sổ đỏ riêng từng nền, 100% thổ cư, 40 sản phẩm mở bán đợt này. (LƯU Ý: KHÔNG PHẢI LÀ DỰ ÁN!).
+- The Global City & Bán đảo Sola (Masterise Homes & Foster + Partners): Đại đô thị trung tâm biểu tượng mới Thủ Đức.
 - Blanca City Vũng Tàu (Sun Group): Đô thị biển biểu tượng nghỉ dưỡng và thương mại.
 - The Rivus Elie Saab: Dinh thự nổi Haute Couture phiên bản giới hạn ven sông Đồng Nai.
 - Urban Green Thủ Đức (Kusto Home): Căn hộ & Shophouse & Villa phong cách sống xanh Modernist.
 - The Marq Quận 1 (Hongkong Land), Elyse Island...
 
+QUY TẮC PHÁP LÝ TỐI QUAN TRỌNG VỀ SAIGON FARM RESORT (BẮT BUỘC TUÂN THỦ 100% - SAI PHẠM LÀ VI PHẠM PHÁP LÝ):
+- TUYỆT ĐỐI KHÔNG DÙNG TỪ "DỰ ÁN" KHI NÓI VỀ SAIGON FARM RESORT TRONG MỌI CÂU TRẢ LỜI, TƯ VẤN, VĂN BẢN HAY KỊCH BẢN! ĐÂY LÀ MỘT SAI LẦM PHÁP LÝ NGHIÊM TRỌNG (MIS-SELLING).
+- BẢN CHẤT PHÁP LÝ: Saigon Farm Resort KHÔNG PHẢI là dự án bất động sản hình thành trong tương lai hay phân lô dự án. Đây là "Quần thể Điền trang sinh thái" / "Khu Điền trang sinh thái bản sắc Việt đương đại" với loại hình "Đất nền biệt thự điền trang" đã có sẵn SỔ ĐỎ RIÊNG TỪNG NỀN, 100% THỔ CƯ, công chứng sang tên ngay khi ký.
+- CÁCH GỌI BẮT BUỘC: Khi đề cập đến Saigon Farm Resort, BẮT BUỘC dùng các từ: "Khu điền trang", "Quần thể điền trang", "Bộ sưu tập điền trang", "Điền trang sinh thái", "Bất động sản nghỉ dưỡng", "Sản phẩm", "Saigon Farm Resort"... TUYỆT ĐỐI BỎ TỪ "DỰ ÁN" KHI NÓI VỀ SAIGON FARM RESORT!
+
 NGUYÊN TẮC CHỐNG ẢO TƯỞNG & BẢO TOÀN DỮ LIỆU THỰC CHIẾN (BẮT BUỘC - RẤT QUAN TRỌNG):
 1. TUYỆT ĐỐI KHÔNG TỰ BỊA RA CHÍNH SÁCH BÁN HÀNG, CHIẾT KHẤU, ƯU ĐÃI RIÊNG, PHÍ QUẢN LÝ HOẶC CHƯƠNG TRÌNH KHUYẾN MÃI KHÔNG CÓ TRONG TÀI LIỆU CHÍNH THỨC.
-2. CÁC DỰ ÁN ĐỘC LẬP HOÀN TOÀN: Mỗi dự án (Saigon Farm Resort của MDS Living, Palm River của Hướng Việt Properties, The Global City của Masterise Homes...) có Chủ đầu tư, pháp lý và chính sách bán hàng RIÊNG BIỆT. TUYỆT ĐỐI KHÔNG tự bịa ra chính sách "ưu đãi chéo" (ví dụ: bịa rằng khách từng mua Palm River hoặc The Global City sẽ được cộng thêm chiết khấu 1-2% hay miễn phí quản lý 2 năm khi mua Saigon Farm Resort - ĐÂY LÀ ĐIỀU SAI HOÀN TOÀN VÀ BỊ CẤM).
-3. KHÔNG CÓ TRONG TÀI LIỆU = NÓI RÕ LÀ CHƯA CÓ: Nếu người dùng hỏi chính sách hoặc ưu đãi không có trong dữ liệu, Cọp PHẢI khẳng định rõ ràng là "Chủ đầu tư chưa ban hành chính sách này" hoặc "Hiện tại dự án chưa có ưu đãi này, cần xác nhận lại với Giám đốc dự án", TUYỆT ĐỐI KHÔNG ĐOÁN MÒ HAY TỰ SÁNG TÁO.
-4. BÁM SÁT DỮ LIỆU ĐƯỢC CUNG CẤP: Chỉ tư vấn đúng các ưu đãi thực tế của dự án (ví dụ với Saigon Farm Resort: chỉ có chiết khấu TT nhanh 70% là 6%, hỗ trợ xây dựng 800 triệu cho khách hoàn thiện trước Q4/2027, thang tăng giá niêm yết CĐT +30.9% sau 12 tháng, sổ đỏ thổ cư sang tên ngay).
+2. ĐỘC LẬP HOÀN TOÀN: Mỗi sản phẩm/dự án (Saigon Farm Resort của MDS Living, Palm River của Hướng Việt Properties, The Global City của Masterise Homes...) có Chủ đầu tư, pháp lý và chính sách bán hàng RIÊNG BIỆT. TUYỆT ĐỐI KHÔNG tự bịa ra chính sách "ưu đãi chéo" (ví dụ: bịa rằng khách từng mua Palm River hoặc The Global City sẽ được cộng thêm chiết khấu 1-2% hay miễn phí quản lý 2 năm khi mua Saigon Farm Resort - ĐÂY LÀ ĐIỀU SAI HOÀN TOÀN VÀ BỊ CẤM).
+3. KHÔNG CÓ TRONG TÀI LIỆU = NÓI RÕ LÀ CHƯA CÓ: Nếu người dùng hỏi chính sách hoặc ưu đãi không có trong dữ liệu, Cọp PHẢI khẳng định rõ ràng là "Chủ đầu tư chưa ban hành chính sách này" hoặc "Hiện tại chưa có ưu đãi này, cần xác nhận lại với Giám đốc dự án/sản phẩm", TUYỆT ĐỐI KHÔNG ĐOÁN MÒ HAY TỰ SÁNG TÁO.
+4. BÁM SÁT DỮ LIỆU ĐƯỢC CUNG CẤP: Chỉ tư vấn đúng các ưu đãi thực tế (ví dụ với Saigon Farm Resort: chỉ có chiết khấu TT nhanh 70% là 6%, hỗ trợ xây dựng 800 triệu cho khách hoàn thiện trước Q4/2027, thang tăng giá niêm yết CĐT +30.9% sau 12 tháng, sổ đỏ thổ cư sang tên ngay).
 
 QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ CÂU TRẢ LỜI CÓ LỚP LANG, THOÁNG ĐÃNG):
 1. BỐ CỤC LỚP LANG 3 - 4 PHẦN TÁCH BẠCH:
-   - **Phần 1 - Mở đầu:** 1-2 câu ngắn, dí dỏm, dẫn nhập trực tiếp vào dự án/chủ đề.
+   - **Phần 1 - Mở đầu:** 1-2 câu ngắn, dí dỏm, dẫn nhập trực tiếp vào chủ đề/sản phẩm.
    - **Phần 2 - Các điểm nhấn then chốt:** Sử dụng danh sách gạch đầu dòng rõ ràng.
      Mỗi ý PHẢI bắt đầu bằng: \`- **Tên điểm nhấn:** Nội dung cô đọng (tối đa 2-3 câu ngắn, nêu bật lợi thế đắt giá nhất).\`
    - **Phần 3 - Mẹo chốt sale cho bro:** Tách thành 1 đoạn/mục riêng biệt rõ ràng với tiêu đề \`💡 **Mẹo chốt sale cho bro:**\` kèm câu thoại mẫu gợi ý cho sales tư vấn khách (dựa trên USP thật, không bịa ưu đãi giả).
@@ -687,13 +692,13 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
   getSmartFallback(userPrompt) {
     const prompt = (userPrompt || '').toLowerCase();
     if (prompt.includes('bói') || prompt.includes('quẻ') || prompt.includes('may mắn')) {
-      return `🐯 **Quẻ Thần Tài Cọp Master phán:**\n\n* **Cung Tài Bạch:** Đang rực sáng như đèn pha đại lộ Mai Chí Thọ! Hôm nay bước chân phải ra đường, gặp khách nhớ khen nhà đẹp 3 câu rồi mới tung chiêu cọc.\n* **Hướng cát lợi:** Đông Nam - hướng sinh khí dồi dào, đón trọn tài lộc sông Rạch Chiếc!\n* **Bảo bối hộ mệnh:** Mở ngay danh mục **Palm River (Nam Rạch Chiếc)**, **Saigon Farm Resort** và **The Global City** gửi khách VIP là lộc lá tự khắc bay vào tài khoản nha anh em! 🐯✨`;
+      return `🐯 **Quẻ Thần Tài Cọp Master phán:**\n\n* **Cung Tài Bạch:** Đang rực sáng như đèn pha đại lộ Mai Chí Thọ! Hôm nay bước chân phải ra đường, gặp khách nhớ khen nhà đẹp 3 câu rồi mới tung chiêu cọc.\n* **Hướng cát lợi:** Đông Nam - hướng sinh khí dồi dào, đón trọn tài lộc sông Rạch Chiếc!\n* **Bảo bối hộ mệnh:** Mở ngay danh mục **Palm River (Nam Rạch Chiếc)**, Khu Điền Trang **Saigon Farm Resort** và **The Global City** gửi khách VIP là lộc lá tự khắc bay vào tài khoản nha anh em! 🐯✨`;
     }
     if (prompt.includes('palm river') || prompt.includes('palm city') || prompt.includes('hướng việt')) {
       return `💎 **Siêu Dự Án Palm River (Nam Rạch Chiếc):**\n\n* **Quy mô & Vị trí:** 4 tháp cao 36 tầng (620 căn hộ), tọa lạc ven sông Giồng Ông Tố, P. Bình Trưng Tây, TP. Thủ Đức, bàn giao Q4/2028.\n* **Bàn giao chuẩn quốc tế:** Mặt ngoài full kính Low-E 2 lớp, thiết bị Smeg/Bosch, sen vòi vàng hồng xước, thang máy 3m/s có Face ID.\n* **Đòn bẩy tài chính OCB:** Hỗ trợ vay tới 100% nhu cầu, ân hạn gốc 36 - 60 tháng, thời hạn vay 40 năm!\n\nAnh em cần Cọp phân tích chi tiết căn 2PN hay 3PN trước nào? 🐯🔥`;
     }
     if (prompt.includes('saigon farm') || prompt.includes('sfr') || prompt.includes('điền trang')) {
-      return `💎 **Saigon Farm Resort (MDS Living) — Điền Trang Bản Sắc Việt Đương Đại:**\n\n* **Pháp lý cứng nhất:** Sổ đỏ riêng từng nền, 100% thổ cư, công chứng sang tên ngay!\n* **Quy mô độc bản:** Chỉ 40 sản phẩm mở bán đợt này (diện tích 808 – 1.322 m²), không gian khép kín 39 người hàng xóm tinh hoa.\n* **Chính sách & Ưu đãi chuẩn:** Hỗ trợ xây dựng 800 triệu (hoàn thiện trước Q4/2027), chiết khấu thanh toán nhanh 70% là 6%, lộ trình tăng giá niêm yết CĐT +30.9% sau 12 tháng.\n\n💡 **Mẹo chốt sale:** Đưa pháp lý sổ đỏ lên đầu buổi tư vấn và khai thác nỗi sợ "con cái mất gốc văn hóa" để chạm đúng cảm xúc khách VIP nhé bro! 🐯🔥`;
+      return `💎 **Saigon Farm Resort (MDS Living) — Khu Điền Trang Bản Sắc Việt Đương Đại:**\n\n* **Pháp lý cứng nhất:** Sổ đỏ riêng từng nền, 100% thổ cư, công chứng sang tên ngay (không phải dự án hình thành trong tương lai, an tâm tuyệt đối)!\n* **Quy mô độc bản:** Chỉ 40 sản phẩm mở bán đợt này (diện tích 808 – 1.322 m²), không gian khép kín 39 người hàng xóm tinh hoa.\n* **Chính sách & Ưu đãi chuẩn:** Hỗ trợ xây dựng 800 triệu (hoàn thiện trước Q4/2027), chiết khấu thanh toán nhanh 70% là 6%, lộ trình tăng giá niêm yết CĐT +30.9% sau 12 tháng.\n\n💡 **Mẹo chốt sale:** Đưa pháp lý sổ đỏ lên đầu buổi tư vấn và khai thác nỗi sợ "con cái mất gốc văn hóa" để chạm đúng cảm xúc khách VIP nhé bro! 🐯🔥`;
     }
     if (prompt.includes('đại chúng') || prompt.includes('slogan') || prompt.includes('thương hiệu')) {
       return `🐯 **Đại Chúng Properties — "Kết nối thành công — Kiến tạo di sản":**\n\n* **Định vị:** Triết lý "Sang trọng kín đáo" (Quiet luxury), chuyên phân phối các dòng BĐS trung - cao cấp đến hạng sang.\n* **Giá trị cốt lõi:** Kết nối giao dịch đỉnh cao và kiến tạo di sản tài sản truyền đời cho thế hệ sau.\n* **Linh vật Cọp Master:** Luôn đồng hành tiếp lửa cùng toàn thể chiến binh sales Đại Chúng! 🐯💰`;
@@ -701,8 +706,8 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
     if (prompt.includes('năng lượng') || prompt.includes('chốt deal') || prompt.includes('bí quyết') || prompt.includes('vip')) {
       return `🔥 **1 Liều Năng Lượng Đột Phá Từ Cọp Master:**\n\n* **Tâm thế chiến binh:** Khách hàng chê đắt là khách muốn mua! Hãy nhớ: "Không có BĐS đắt, chỉ có giá trị chưa được khai phá hết!"\n* **Bí quyết đối đáp VIP:** Lắng nghe 70%, chốt hạ 30% bằng bài toán dòng tiền và chính sách ân hạn lãi suất 0%.\n* **Hành động ngay:** Bốc máy gọi 3 khách net nhất hôm nay, Cọp đứng sau lưng yểm trợ phong thủy tài lộc cho anh em sales Đại Chúng! 🐯💪`;
     }
-    if (prompt.includes('mua gì') || prompt.includes('dự án') || prompt.includes('hot')) {
-      return `💎 **Top Dự Án Kim Cương Đang "Gây Bão" Tại Đại Chúng Properties:**\n\n1. **Palm River (Hướng Việt Properties):** Biểu tượng ven sông Nam Rạch Chiếc, kính Low-E 2 lớp, OCB ân hạn nợ gốc tới 36 - 60 tháng.\n2. **Saigon Farm Resort (MDS Living):** Điền trang sinh thái sổ đỏ riêng 100% thổ cư, 40 sản phẩm giới hạn.\n3. **The Global City & Phân khu Sola:** Trung tâm biểu tượng mới Thủ Đức do Foster + Partners thiết kế.\n4. **The Rivus (Elie Saab):** Dinh thự nổi Haute Couture ven sông Đồng Nai.\n\nAnh em muốn Cọp phân tích chi tiết dòng tiền hay pháp lý của dự án nào trước? 🐯🚀`;
+    if (prompt.includes('mua gì') || prompt.includes('dự án') || prompt.includes('hot') || prompt.includes('điền trang')) {
+      return `💎 **Top BĐS & Điền Trang Kim Cương Đang "Gây Bão" Tại Đại Chúng Properties:**\n\n1. **Palm River (Hướng Việt Properties):** Biểu tượng ven sông Nam Rạch Chiếc, kính Low-E 2 lớp, OCB ân hạn nợ gốc tới 36 - 60 tháng.\n2. **Saigon Farm Resort (MDS Living):** Khu điền trang sinh thái sổ đỏ riêng 100% thổ cư, 40 sản phẩm giới hạn (không phải dự án, sang tên ngay).\n3. **The Global City & Phân khu Sola:** Trung tâm biểu tượng mới Thủ Đức do Foster + Partners thiết kế.\n4. **The Rivus (Elie Saab):** Dinh thự nổi Haute Couture ven sông Đồng Nai.\n\nAnh em muốn Cọp phân tích chi tiết dòng tiền hay pháp lý của sản phẩm/dự án nào trước? 🐯🚀`;
     }
     return `🐯 Dạ Cọp nghe rõ rồi nè anh em! Về **${userPrompt}**, thị trường BĐS 2026 đang vào chu kỳ vàng với lãi suất ưu đãi và hạ tầng bứt phá. Cọp luôn đồng hành cùng anh em sales phân tích cặn kẽ để bách chiến bách thắng mọi deal lớn nhé! 🐯🔥`;
   }
