@@ -524,6 +524,7 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
   }
 
   rankProjectDocs(proj, query) {
+    query = query.normalize('NFC');
     const synonyms = {
       'giá': ['price', 'giá', 'báo giá', 'bảng giá', 'selling price'],
       'shophouse': ['shophouse', 'shop', '-sh.', 'tmdv'],
@@ -539,7 +540,7 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
     };
 
     const ignored = new Set([proj.name || '', ...(proj.keywords || [])]
-      .join(' ').toLowerCase().split(/[^\p{L}\p{N}]+/u));
+      .join(' ').normalize('NFC').toLowerCase().split(/[^\p{L}\p{N}]+/u));
     const terms = new Set();
     for (const [key, values] of Object.entries(synonyms)) {
       if (query.includes(key)) values.forEach(v => terms.add(v));
@@ -551,8 +552,8 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
     if (terms.size === 0) return proj.docs;
 
     const scoreDoc = (doc) => {
-      const title = (doc.title || '').toLowerCase();
-      const content = (doc.content || '').toLowerCase();
+      const title = (doc.title || '').normalize('NFC').toLowerCase();
+      const content = (doc.content || '').normalize('NFC').toLowerCase();
       let score = 0;
       for (const term of terms) {
         if (title.includes(term)) score += 10;
