@@ -523,6 +523,50 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
     return prompt;
   }
 
+  rankProjectDocs(proj, query) {
+    const synonyms = {
+      'giá': ['price', 'giá', 'báo giá', 'bảng giá', 'selling price'],
+      'shophouse': ['shophouse', 'shop', '-sh.', 'tmdv'],
+      'shop': ['shophouse', 'shop', '-sh.', 'tmdv'],
+      'villa': ['villa', 'biệt thự'],
+      'biệt thự': ['villa', 'biệt thự'],
+      'căn hộ': ['căn hộ', 'apartment', 'unitlayout'],
+      'giỏ hàng': ['giỏ hàng', 'gio-hang', 'stock'],
+      'chính sách': ['chính sách', 'csbh', 'chinh-sach'],
+      'vay': ['vay', 'ngân hàng', 'loan'],
+      'mặt bằng': ['mặt bằng', 'layout', 'unitlayout'],
+      'tiến độ': ['tiến độ', 'thanh toán', 'payment']
+    };
+
+    const ignored = new Set([proj.name || '', ...(proj.keywords || [])]
+      .join(' ').toLowerCase().split(/[^\p{L}\p{N}]+/u));
+    const terms = new Set();
+    for (const [key, values] of Object.entries(synonyms)) {
+      if (query.includes(key)) values.forEach(v => terms.add(v));
+    }
+    query.split(/[^\p{L}\p{N}]+/u)
+      .filter(w => w.length >= 4 && !ignored.has(w))
+      .forEach(w => terms.add(w));
+
+    if (terms.size === 0) return proj.docs;
+
+    const scoreDoc = (doc) => {
+      const title = (doc.title || '').toLowerCase();
+      const content = (doc.content || '').toLowerCase();
+      let score = 0;
+      for (const term of terms) {
+        if (title.includes(term)) score += 10;
+        score += Math.min(content.split(term).length - 1, 10);
+      }
+      return score;
+    };
+
+    return proj.docs
+      .map((doc, index) => ({ doc, index, score: scoreDoc(doc) }))
+      .sort((a, b) => b.score - a.score || a.index - b.index)
+      .map(item => item.doc);
+  }
+
   findProjectKnowledge(userPrompt) {
     if (!window.DAICHUNG_PROJECT_DATABASE || typeof window.DAICHUNG_PROJECT_DATABASE !== 'object') {
       return '';
@@ -541,7 +585,7 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
       }
 
       if (isMatch) {
-        for (const doc of proj.docs) {
+        for (const doc of this.rankProjectDocs(proj, query)) {
           const docContent = doc.content || '';
           if (!docContent) continue;
 
