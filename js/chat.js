@@ -523,6 +523,66 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
     return prompt;
   }
 
+  rankProjectDocs(proj, query) {
+    const fold = (text) => (text || '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/đ/gi, 'd')
+      .toLowerCase();
+
+    const synonyms = {
+      'gia': ['price', 'gia', 'bao gia', 'bang gia', 'selling price'],
+      'shophouse': ['shophouse', 'shop', '-sh.', 'tmdv'],
+      'shop': ['shophouse', 'shop', '-sh.', 'tmdv'],
+      'villa': ['villa', 'biet thu'],
+      'biet thu': ['villa', 'biet thu'],
+      'can ho': ['can ho', 'apartment', 'unitlayout'],
+      'gio hang': ['gio hang', 'gio-hang', 'stock'],
+      'chinh sach': ['chinh sach', 'csbh', 'chinh-sach'],
+      'vay': ['vay', 'ngan hang', 'loan'],
+      'mat bang': ['mat bang', 'layout', 'unitlayout'],
+      'tien do': ['tien do', 'thanh toan', 'payment']
+    };
+
+    const q = fold(query);
+    const ignored = new Set(fold([proj.name || '', ...(proj.keywords || [])].join(' ')).split(/[^a-z0-9]+/));
+    const words = q.split(/[^a-z0-9]+/);
+    const terms = new Map();
+    for (const [key, values] of Object.entries(synonyms)) {
+      if (words.includes(key) || (key.includes(' ') && q.includes(key))) {
+        values.forEach(v => terms.set(v, 1));
+      }
+    }
+    words.filter(w => w.length >= 4 && !ignored.has(w)).forEach(w => terms.set(w, 1));
+    // Unit codes such as "B-SH.01" pin the exact price/stock rows.
+    (q.match(/\b[a-z]{1,3}-?[a-z]{0,3}\.\d{1,3}\b/g) || []).forEach(code => terms.set(code, 5));
+
+    if (terms.size === 0) return proj.docs;
+
+    const patterns = [...terms].map(([term, weight]) => {
+      const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const start = /^[a-z0-9]/.test(term) ? '(?<![a-z0-9])' : '';
+      const end = /[a-z0-9]$/.test(term) ? '(?![a-z0-9])' : '';
+      return { regex: new RegExp(start + escaped + end, 'g'), weight };
+    });
+
+    const scoreDoc = (doc) => {
+      const title = fold(doc.title);
+      const content = fold(doc.content);
+      let score = 0;
+      for (const { regex, weight } of patterns) {
+        if (title.match(regex)) score += 10 * weight;
+        score += Math.min((content.match(regex) || []).length, 10) * weight;
+      }
+      return score;
+    };
+
+    return proj.docs
+      .map((doc, index) => ({ doc, index, score: scoreDoc(doc) }))
+      .sort((a, b) => b.score - a.score || a.index - b.index)
+      .map(item => item.doc);
+  }
+
   findProjectKnowledge(userPrompt) {
     if (!window.DAICHUNG_PROJECT_DATABASE || typeof window.DAICHUNG_PROJECT_DATABASE !== 'object') {
       return '';
@@ -541,7 +601,7 @@ QUY TẮC CẤU TRÚC VÀ TRÌNH BÀY (BẮT BUỘC - RẤT QUAN TRỌNG ĐỂ C
       }
 
       if (isMatch) {
-        for (const doc of proj.docs) {
+        for (const doc of this.rankProjectDocs(proj, query)) {
           const docContent = doc.content || '';
           if (!docContent) continue;
 
